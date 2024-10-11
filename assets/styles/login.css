@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url('/assets/media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
+    background-repeat: no-repeat;
+    /* background-position: 100% 100%; */
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    width: 100%;
+    height: 12%;
+    padding: 1rem;
+    /* border: 2px solid rgb(248, 19, 19); */
+    background-image: linear-gradient(90deg, rgba(4, 5, 46), rgba(61, 156, 194, 1) 50%, rgba(7, 112, 232));
+}
+
+section {
+    width: 100%;
+    height: 60%;
+    /* border: 2px solid rgb(245, 14, 14); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    width: 100%;
+    height: 28%;
+    /* border: 2px solid rgb(247, 9, 9); */
+    background-image: linear-gradient(90deg, rgba(7, 112, 232), rgba(61, 156, 194, 1) 50%, rgba(4, 5, 46));
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.formContainer {
+    width: 40%;
+    height: 80%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* opacity: 0.9; */
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+form {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+label {
+    color: rgb(51, 51, 51);
+}
+
+input {
+    color: black;
+    height: 2.5rem;
+    width: 100%;
+    font-style: italic;
+    padding-left: 5px;
+}
+
+input[type=checkbox] {
+    height: 1rem;
+    width: 1rem;
+}
+
+.checkBox {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#loginButton {
+    width: 10rem;
+    height: 2.5rem;
+    background-color: #0770e8;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+}
+
+.forgot {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contactUs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 8rem;
+    margin: auto;
+    border: 1px solid white;
+}
