@@ -11,7 +11,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background: url('/assets/media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
+    background: url('http://89.23.108.116/BlueAmariOnline/assets/media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
     background-repeat: no-repeat;
     /* background-position: 100% 100%; */
     background-size: cover;
@@ -158,6 +158,10 @@ input[type=checkbox] {
     /* border: 1px solid white; */
 }
 
+#contactUs {
+    font-size: 2rem;
+}
+
 .socials {
     height: 2.5rem;
     width: 100%;
@@ -225,6 +229,10 @@ input[type=checkbox] {
     .contactUs {
         width: 95%;
         height: 8rem;
+        /* font-size: 1rem; */
+    }
+
+    #contactUs {
         font-size: 1rem;
     }
 
@@ -275,12 +283,8 @@ input[type=checkbox] {
         width: 95%;
     }
 
-    #contactNeed {
-        font-size: 1.2rem;
-    }
-
-    #contactContact {
-        font-size: 1.2rem;
+    #contactUs {
+        font-size: 1rem;
     }
 
     #contactSocials {
