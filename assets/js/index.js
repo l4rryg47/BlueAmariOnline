@@ -56,6 +56,11 @@ function back () {
 function next2 () {
     registerform2.style.display = 'none'
     registerform3.style.display = 'flex'
+    registerform3.style.height = '70%'
     console.log("register")
+}
+
+function homepage() {
+    location.href = '../index.html'
 }
 
