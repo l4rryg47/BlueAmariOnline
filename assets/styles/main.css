@@ -11,7 +11,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background: url('assets/media/images/mark-basarab-1OtUkD_8svc-unsplash.jpg');
+    background: url('/assets/media/images/mark-basarab-1OtUkD_8svc-unsplash.jpg');
     background-repeat: no-repeat;
     /* background-position: 100% 100%; */
     background-size: cover;
@@ -356,8 +356,12 @@ wrap-lastFeature {
     }
 
     .heroHeader {
-        font-size: 20px;
+        font-size: 18px;
         text-align: start;
+    }
+
+    h1 {
+        font-size: 26px;
     }
 
     .heroSubHeader {
@@ -384,7 +388,7 @@ wrap-lastFeature {
     }
 }
 
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 430px) {
     .hamburger {
         display: flex;
     }
@@ -399,7 +403,7 @@ wrap-lastFeature {
     }
 
     section {
-        margin-top: 20px;
+        margin-top: 10px;
         padding: 1rem;
         height: 80%;
         /* border: 1px solid white; */
@@ -414,14 +418,17 @@ wrap-lastFeature {
         text-align: start;
     }
 
+    h1 {
+        font-size: 30px;
+    }
+
     .heroSubHeader {
         text-align: start;
-        /* font-size: 20px; */
         margin-top: 10px;
     }
 
     #heroSubHeader1 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     #heroSubHeader2 {
@@ -454,11 +461,11 @@ wrap-lastFeature {
 
     #feature {
         height: 6rem;
-        width: 7rem;
+        width: 6rem;
     }
 
     .features {
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .newfeature {
