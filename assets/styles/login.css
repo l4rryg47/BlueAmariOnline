@@ -1,3 +1,5 @@
+/* Project coded vanilla from scratch by SNK for CMC||RIP FL3XY */
+
 * {
     padding: 0;
     margin: 0;
@@ -9,7 +11,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background: url('/assets/media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
+    background: url('assets/media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
     background-repeat: no-repeat;
     /* background-position: 100% 100%; */
     background-size: cover;
@@ -58,6 +60,32 @@ footer {
     justify-content: center;
     /* opacity: 0.9; */
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+.formContainer2 {
+    width: 40%;
+    height: 80%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* opacity: 0.9; */
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+    display: none;
+}
+
+.formContainer3 {
+    width: 40%;
+    height: 80%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* opacity: 0.9; */
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+    display: none;
 }
 
 form {
@@ -116,10 +144,29 @@ input[type=checkbox] {
 
 .contactUs {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
     width: 50%;
-    height: 8rem;
+    height: 10rem;
     margin: auto;
-    border: 1px solid white;
+    /* border: 1px solid white; */
+}
+
+.socials {
+    height: 2.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.socialCircle {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 2px solid #81ade0;
+    padding: .3rem;
 }

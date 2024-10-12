@@ -22,10 +22,49 @@
     <section>
         <div class="formContainer">
             <form action="" method="post">
-                <label for="username">Username or Card Number</label>
-                <input type="text" name="username" id="username" placeholder="username or card number" required>
-                <label for="password">PIN</label>
-                <input type="password" name="password" id="password" placeholder="password" required>
+                <label for="username">Enter Your Full Names</label>
+                <input type="text" name="username" id="username" placeholder="First Name, Last Name" required>
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="dob" id="dob">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" placeholder="Enter your phone number in international format">
+                <!-- <div class="checkBox">
+                    <input type="checkbox" name="checkbox" id="checkbox">
+                    <p style="color: black; font-size: .9rem;">Remember me</p>
+                </div>
+                <button type="submit" id="loginButton">
+                    <span>
+                        <i class="fa-solid fa-lock"></i>
+                    </span>
+                    <p>Register</p>
+                </button> -->
+                <div class="forgot">
+                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="login1()">Already have an account? Login</p>
+                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="next()">Next</p>
+                </div>
+            </form>
+        </div>
+        <div class="formContainer2">
+            <form action="" method="post">
+                <label for="username">Enter a Username or Card Number</label>
+                <input type="text" name="username" id="username" placeholder="Enter username or card number" required>
+                <label for="email">Enter your email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <label for="confirmEmail">Confirm your email</label>
+                <input type="email" name="confirmEmail" id="confirmEmail" placeholder="Enter your email" required>
+                <div class="forgot">
+                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="back()">Back</p>
+                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="next2()">Next</p>
+                </div>
+            </form>
+        </div>
+
+        <div class="formContainer3">
+            <form action="" method="post">
+                <label for="username">Enter a Username or Card Number</label>
+                <input type="text" name="username" id="username" placeholder="Enter username or card number" required>
+                <label for="email">Enter your email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
                 <div class="checkBox">
                     <input type="checkbox" name="checkbox" id="checkbox">
                     <p style="color: black; font-size: .9rem;">Remember me</p>
@@ -34,11 +73,11 @@
                     <span>
                         <i class="fa-solid fa-lock"></i>
                     </span>
-                    <p>Login</p>
+                    <p>Register</p>
                 </button>
                 <div class="forgot">
-                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;">Forgot username or password?</p>
-                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="register1()">Register</p>
+                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;">Already have an account? Login</p>
+                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;">Register</p>
                 </div>
             </form>
         </div>
@@ -69,6 +108,7 @@
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/index.js"></script>
 </body>
