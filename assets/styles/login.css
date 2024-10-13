@@ -11,7 +11,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background: url('assets/media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
+    background: url('http://89.23.108.116/BlueAmariOnline/assets/media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
     background-repeat: no-repeat;
     /* background-position: 100% 100%; */
     background-size: cover;
@@ -158,6 +158,10 @@ input[type=checkbox] {
     /* border: 1px solid white; */
 }
 
+#contactUs {
+    font-size: 2rem;
+}
+
 .socials {
     height: 2.5rem;
     width: 100%;
@@ -182,4 +186,116 @@ input[type=checkbox] {
     align-items: center;
     justify-content: center;
     gap: 100px;
+}
+
+#contactNeed {
+    color: white;
+    font-size: 2rem;
+}
+
+#contactContact {
+    color: #81ade0;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+#footerMain {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 360px) {
+    .formContainer {
+        width: 90%;
+        height: 90%;
+    }
+
+    .formContainer2 {
+        width: 90%;
+        height: 90%;
+    }
+
+    .formContainer3 {
+        width: 90%;
+        height: 90%;
+    }
+
+    footer {
+        height: 30%;
+        padding-top: 5px;
+    }
+
+    .contactUs {
+        width: 95%;
+        height: 8rem;
+        /* font-size: 1rem; */
+    }
+
+    #contactUs {
+        font-size: 1rem;
+    }
+
+    #contactNeed {
+        border: 1px solid black;
+        /* font-size: 6rem; */
+    }
+
+    #contactContact {
+        border: 1px solid black;
+        text-decoration: none;
+    }
+
+    #contactSocials {
+        font-size: .7rem;
+    }
+    
+    .footerMain {
+        gap: 2px;
+    }
+
+    #footerMain {
+        font-size: .6rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .formContainer {
+        width: 90%;
+        height: 90%;
+    }
+
+    .formContainer2 {
+        width: 90%;
+        height: 90%;
+    }
+
+    .formContainer3 {
+        width: 90%;
+        height: 90%;
+    }
+
+    .contactUs {
+        width: 95%;
+    }
+
+    #contactUs {
+        font-size: 1rem;
+    }
+
+    #contactSocials {
+        font-size: .8rem;
+    }
+    
+    .footerMain {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
 }
