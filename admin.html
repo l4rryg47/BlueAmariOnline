@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/media/images/favicon.ico" type="image/x-icon">
+    <title>Blue Sky - Admin User Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 10px;
+            width: 200px;
+        }
+        #userList {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin User Management</h1>
+
+    <h2>Delete User</h2>
+    <input type="text" id="deleteUserId" placeholder="User ID" />
+    <button onclick="deleteUser()">Delete User</button>
+
+    <h2>List Users</h2>
+    <button onclick="listUsers()">List Users</button>
+    <div id="userList"></div>
+
+    <script>
+        const apiUrl = 'http://localhost:3000/api/users'; // Update with your API URL
+
+        async function deleteUser() {
+            const userId = document.getElementById('deleteUserId').value;
+
+            const response = await fetch(`${apiUrl}/${userId}`, {
+                method: 'DELETE',
+            });
+
+            const result = await response.json();
+            alert(result.message);
+
+            // Refresh the page after successful deletion
+            if (response.ok) {
+                location.reload(); // Refresh the page
+            }
+        }
+
+        async function listUsers() {
+            try {
+                console.log('Fetching users from:', apiUrl); // Log the API URL
+                const response = await fetch(apiUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                console.log('Response status:', response.status); // Log the response status
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const users = await response.json();
+                console.log('Fetched users:', users); // Log the fetched users
+                displayUsers(users);
+            } catch (error) {
+                console.error('Error fetching users:', error);
+                alert('An error occurred while fetching users: ' + error.message);
+            }
+        }
+
+        function displayUsers(users) {
+            const userListDiv = document.getElementById('userList');
+            userListDiv.innerHTML = ''; // Clear previous results
+
+            if (users.length === 0) {
+                userListDiv.innerHTML = '<p>No users found.</p>';
+                return;
+            }
+
+            const table = document.createElement('table');
+            const headerRow = document.createElement('tr');
+            headerRow.innerHTML = '<th>User ID</th><th>Full Name</th><th>Email</th>';
+            table.appendChild(headerRow);
+
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${user.userId}</td><td>${user.fullName}</td><td>${user.email}</td>`;
+                table.appendChild(row);
+            });
+
+            userListDiv.appendChild(table);
+        }
+    </script>
+</body>
+</html>

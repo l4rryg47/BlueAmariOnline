@@ -6,7 +6,23 @@
     <link rel="stylesheet" href="../assets/styles/accounts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="../assets/media/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/styles/fundsTransfer.css">
+    <link rel="stylesheet" href="../assets/styles/offers.css">
+    <link rel="stylesheet" href="../assets/styles/billPay.css">
+    <link rel="stylesheet" href="../assets/styles/card.css">
+    <link rel="stylesheet" href="../assets/styles/loan.css">
+    <link rel="stylesheet" href="../assets/styles/mutualFundsDiv.css">
+    <link rel="stylesheet" href="../assets/styles/transactionHistory.css">
     <title>Retail Banking - Dashboard</title>
+    <script>
+        // Add this script to check for authentication
+        function checkAuth() {
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                window.location.href = '../login/index.html';
+            }
+        }
+        checkAuth();
+    </script>
 </head>
 <body>
     <header>
@@ -30,13 +46,13 @@
                 </div>
             </div>
             <div class="bottomNav">
-                <p id="accounts">Accounts</p>
-                <p id="fundsTransfer">Funds Transfer</p>
-                <p id="billPay">BillPay & Recharge</p>
-                <p id="cards">Cards</p>
-                <p id="mutualFunds">Mutual Funds</p>
-                <p id="loans">Loans</p>
-                <p id="offers">Offers</p>
+                <div id="accounts">Accounts</div>
+                <div id="fundsTransfer">Funds Transfer</div>
+                <div id="billPay">BillPay & Recharge</div>
+                <div id="cards">Cards</div>
+                <div id="mutualFunds">Mutual Funds</div>
+                <div id="loans">Loans</div>
+                <div id="offers">Offers</div>
             </div>
         </div>
     </header>
@@ -131,6 +147,531 @@
                 </div>
                 <div class="advert">PLACE YOUR ADVERT HERE</div>
             </div>
+
+            <div class="faccounts">
+                <div class="accountTitle">
+                    <h2>Funds Transfer</h2>
+                </div>
+                <div class="mutualFundsDisplay">
+                    <div class="mutualFundsDisplayHeader">
+                        <div class="description">You have not created any mutual funds.</div>
+                        <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
+                    </div>
+                    <div class="displayBody">
+                        <div class="up">
+                            <div class="description">
+                            <div id="description">
+                                <p>Create one now?</p>
+                            </div>
+                            
+                            </div>
+                            <div class="amount">
+                                <!-- <div id="amount">
+                                    <p>$500,000.00USD</p>
+                                    <p>$0.00USD</p>
+                                    <p>$2,500.00USD</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="mutualFundsDown">
+                            <div class="description">
+                                <!-- <div id="description" style="justify-content: center;">
+                                    <p>TOTAL</p>
+                                </div> -->
+                                </div>
+                                <div class="amount">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    <!-- <div class="displayTotal"></div> -->
+                    <div class="displayNav">
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </span>
+                            </div>
+                            <p>Open Account</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <p>Apply Credit Card</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </span>
+                            </div>
+                            <p>Apply for a loan</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </span>
+                            </div>
+                            <p>Invest with us</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advert">PLACE YOUR ADVERT HERE</div>
+            </div>
+
+            <div class="billPayDiv">
+                <div class="accountTitle">
+                    <h2>Bill Pay</h2>
+                </div>
+                <div class="mutualFundsDisplay">
+                    <div class="mutualFundsDisplayHeader">
+                        <div class="description">This service is not available for this account. Contact your accounts officer for more information.</div>
+                        <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
+                    </div>
+                    <div class="displayBody">
+                        <div class="up">
+                            <div class="description">
+                            <div id="description">
+                                
+                            </div>
+                            
+                            </div>
+                            <div class="amount">
+                                <!-- <div id="amount">
+                                    <p>$500,000.00USD</p>
+                                    <p>$0.00USD</p>
+                                    <p>$2,500.00USD</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="mutualFundsDown">
+                            <div class="description">
+                                <!-- <div id="description" style="justify-content: center;">
+                                    <p>TOTAL</p>
+                                </div> -->
+                                </div>
+                                <div class="amount">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    <!-- <div class="displayTotal"></div> -->
+                    <div class="displayNav">
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </span>
+                            </div>
+                            <p>Open Account</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <p>Apply Credit Card</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </span>
+                            </div>
+                            <p>Apply for a loan</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </span>
+                            </div>
+                            <p>Invest with us</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advert">PLACE YOUR ADVERT HERE</div>
+            </div>
+
+            <div class="cardsDiv">
+                <div class="accountTitle">
+                    <h2>Cards</h2>
+                </div>
+                <div class="mutualFundsDisplay">
+                    <div class="mutualFundsDisplayHeader">
+                        <div class="description">You do not have any active cards.</div>
+                        <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
+                    </div>
+                    <div class="displayBody">
+                        <div class="up">
+                            <div class="description">
+                            <div id="description">
+                                <p>Request and activate a new card to enjoy the benefits of card banking.</p>
+                            </div>
+                            
+                            </div>
+                            <div class="amount">
+                                <!-- <div id="amount">
+                                    <p>$500,000.00USD</p>
+                                    <p>$0.00USD</p>
+                                    <p>$2,500.00USD</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="mutualFundsDown">
+                            <div class="description">
+                                <!-- <div id="description" style="justify-content: center;">
+                                    <p>TOTAL</p>
+                                </div> -->
+                                </div>
+                                <div class="amount">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    <!-- <div class="displayTotal"></div> -->
+                    <div class="displayNav">
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </span>
+                            </div>
+                            <p>Open Account</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <p>Apply Credit Card</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </span>
+                            </div>
+                            <p>Apply for a loan</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </span>
+                            </div>
+                            <p>Invest with us</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advert">PLACE YOUR ADVERT HERE</div>
+            </div>
+
+            <div class="loansDiv">
+                <div class="accountTitle">
+                    <h2>Loan</h2>
+                </div>
+                <div class="mutualFundsDisplay">
+                    <div class="mutualFundsDisplayHeader">
+                        <div class="description">You do not have any active loans.</div>
+                        <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
+                    </div>
+                    <div class="displayBody">
+                        <div class="up">
+                            <div class="description">
+                            <div id="description">
+                                <p>Request for a new loan.</p>
+                            </div>
+                            
+                            </div>
+                            <div class="amount">
+                                <!-- <div id="amount">
+                                    <p>$500,000.00USD</p>
+                                    <p>$0.00USD</p>
+                                    <p>$2,500.00USD</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="mutualFundsDown">
+                            <div class="description">
+                                <!-- <div id="description" style="justify-content: center;">
+                                    <p>TOTAL</p>
+                                </div> -->
+                                </div>
+                                <div class="amount">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    <!-- <div class="displayTotal"></div> -->
+                    <div class="displayNav">
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </span>
+                            </div>
+                            <p>Open Account</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <p>Apply Credit Card</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </span>
+                            </div>
+                            <p>Apply for a loan</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </span>
+                            </div>
+                            <p>Invest with us</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advert">PLACE YOUR ADVERT HERE</div>
+            </div>
+
+            <div class="mutualFundsDiv">
+                <div class="accountTitle">
+                    <h2>Mutual Funds</h2>
+                </div>
+                <div class="mutualFundsDisplay">
+                    <div class="mutualFundsDisplayHeader">
+                        <div class="description">You have not created any mutual funds.</div>
+                        <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
+                    </div>
+                    <div class="displayBody">
+                        <div class="up">
+                            <div class="description">
+                            <div id="description">
+                                <p>Create one now?</p>
+                            </div>
+                            
+                            </div>
+                            <div class="amount">
+                                <!-- <div id="amount">
+                                    <p>$500,000.00USD</p>
+                                    <p>$0.00USD</p>
+                                    <p>$2,500.00USD</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="mutualFundsDown">
+                            <div class="description">
+                                <!-- <div id="description" style="justify-content: center;">
+                                    <p>TOTAL</p>
+                                </div> -->
+                                </div>
+                                <div class="amount">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    <!-- <div class="displayTotal"></div> -->
+                    <div class="displayNav">
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </span>
+                            </div>
+                            <p>Open Account</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <p>Apply Credit Card</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </span>
+                            </div>
+                            <p>Apply for a loan</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </span>
+                            </div>
+                            <p>Invest with us</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advert">PLACE YOUR ADVERT HERE</div>
+            </div>
+
+            <div class="offers1">
+                <div class="accountTitle">
+                    <h2>Offers</h2>
+                </div>
+                <div class="mutualFundsDisplay">
+                    <div class="mutualFundsDisplayHeader">
+                        <div class="description">No new offers. Check back again.</div>
+                        <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
+                    </div>
+                    <div class="displayBody">
+                        <div class="up">
+                            <div class="description">
+                            <div id="description">
+                                
+                            </div>
+                            
+                            </div>
+                            <div class="amount">
+                                <!-- <div id="amount">
+                                    <p>$500,000.00USD</p>
+                                    <p>$0.00USD</p>
+                                    <p>$2,500.00USD</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="mutualFundsDown">
+                            <div class="description">
+                                <!-- <div id="description" style="justify-content: center;">
+                                    <p>TOTAL</p>
+                                </div> -->
+                                </div>
+                                <div class="amount">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    <!-- <div class="displayTotal"></div> -->
+                    <div class="displayNav">
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </span>
+                            </div>
+                            <p>Open Account</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <p>Apply Credit Card</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </span>
+                            </div>
+                            <p>Apply for a loan</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </span>
+                            </div>
+                            <p>Invest with us</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advert">PLACE YOUR ADVERT HERE</div>
+            </div> 
+            
+            <div class="transactionHistory1">
+                <div class="accountTitle">
+                    <h2>Transaction History</h2>
+                </div>
+                <div class="mutualFundsDisplay">
+                    <div class="mutualFundsDisplayHeader">
+                        <div class="description">No new offers. Check back again.</div>
+                        <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
+                    </div>
+                    <div class="displayBody">
+                        <div class="up">
+                            <div class="description">
+                            <div id="description">
+                                
+                            </div>
+                            
+                            </div>
+                            <div class="amount">
+                                <!-- <div id="amount">
+                                    <p>$500,000.00USD</p>
+                                    <p>$0.00USD</p>
+                                    <p>$2,500.00USD</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="mutualFundsDown">
+                            <div class="description">
+                                <!-- <div id="description" style="justify-content: center;">
+                                    <p>TOTAL</p>
+                                </div> -->
+                                </div>
+                                <div class="amount">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    <!-- <div class="displayTotal"></div> -->
+                    <div class="displayNav">
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </span>
+                            </div>
+                            <p>Open Account</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                </span>
+                            </div>
+                            <p>Apply Credit Card</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                </span>
+                            </div>
+                            <p>Apply for a loan</p>
+                        </div>
+                        <div class="openAccount">
+                            <div class="circle">
+                                <span style="font-size: 1.3rem;">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </span>
+                            </div>
+                            <p>Invest with us</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advert">PLACE YOUR ADVERT HERE</div>
+            </div>
             
         </div>
     </section>
@@ -141,5 +682,15 @@
         <div class="legal">Legal</div>
         <div class="security">Security</div>
     </footer>
+
+
+    <script src="../assets/js/index.js"></script>
+    <script>
+        // Add logout functionality
+        document.querySelector('button[type="button"]').addEventListener('click', function() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = '../login/index.html';
+        });
+    </script>
 </body>
 </html>

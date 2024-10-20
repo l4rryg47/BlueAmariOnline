@@ -91,6 +91,11 @@ header {
 #accounts:hover, #fundsTransfer:hover, #billPay:hover, #cards:hover, #mutualFunds:hover, #loans:hover, #offers:hover {
     cursor: pointer;
     font-size: 1rem;
+    border-bottom: 1px solid white;
+}
+
+#accounts, #fundsTransfer, #billPay, #cards, #mutualFunds, #loans, #offers {
+    font-size: .9rem;
 }
 
 .myAccounts, .payBills, .transaction, .enquire, .request {
@@ -161,7 +166,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .accountTitle {

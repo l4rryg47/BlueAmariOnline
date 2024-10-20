@@ -1,0 +1,340 @@
+/* Project coded vanilla from scratch by SNK for CMC||RIP FL3XY */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: azure;
+}
+
+/* This is CSS for the header navigation */
+
+header {
+    width: 100%;
+    height: 15%;
+    background-image: linear-gradient(90deg, rgba(7, 112, 232), rgba(61, 156, 194, 1) 50%, rgba(4, 5, 46));
+    display: flex;
+    color: whitesmoke;
+}
+
+.logo {
+    width: 18%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+#logoTitle {
+    font-size: 1.8rem;
+}
+
+.headerNav {
+    width: 82%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5rem;
+}
+
+.topNav {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.welcome {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    font-size: .8rem;
+}
+
+#welcome {
+    font-weight: bold;
+}
+
+.profile {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    font-size: .8rem;
+}
+
+#profileDetails, #passwordChange {
+    cursor: pointer;
+}
+
+#accounts:hover, #fundsTransfer:hover, #billPay:hover, #cards:hover, #mutualFunds:hover, #loans:hover, #offers:hover {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.myAccounts, .payBills, .transaction, .enquire, .request {
+    display: flex;
+    align-items: center;
+}
+
+.myAccounts:hover, .payBills:hover, .transaction:hover, .enquire:hover, .request:hover  {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+button {
+    border: none;
+    background-color: rgba(7, 112, 232);
+    width: 6rem;
+    height: 2rem;
+    border-radius: 5px;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.bottomNav {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    font-size: .9rem;
+    padding-bottom: .5rem;
+}
+
+/* Here is CSS for the section body */
+
+section {
+    width: 100%;
+    height: 80%;
+    border-bottom: 1px solid rgba(7, 112, 232);
+    display: flex;
+}
+
+.leftSection {
+    width: 15%;
+    height: 100%;
+    /* border: 1px solid red; */
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 30px;
+    font-size: .8rem;
+}
+
+.rightSection {
+    width: 85%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.billPayDiv {
+    /* border: 1px solid goldenrod; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    display: none;
+
+}
+
+.accountTitle {
+    height: 10%;
+    width: 100%;
+    /* border: 1px solid black; */
+}
+
+.accountsDisplay {
+    width: 100%;
+    height: 65%;
+    background-color: rgb(249, 249, 248);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+.advert {
+    width: 100%;
+    height: 20%;
+    background-color: rgba(61, 156, 194, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.displayHeader {
+    height: 7%;
+    width: 100%;
+    /* border-bottom: 1px solid black; */
+    display: flex;
+    font-size: .9rem;
+}
+
+.description {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 20px;
+    /* border: 1px solid black; */
+}
+
+.amount {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    font-size: .8rem;
+    color: green;
+    /* border: 1px solid black; */
+}
+
+.displayBody {
+    height: 70%;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    padding-right: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
+
+#description {
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+#accountNumber {
+    width: 20%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: .8rem;
+    font-style: italic;
+    color: grey;
+}
+
+#amount {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: baseline;
+    gap: 20px;
+    /* border: 1px solid black; */
+}
+
+.up {
+    height: 80%;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.down {
+    margin-top: 50px;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(4, 5, 46);
+    border-bottom: 1px solid rgba(4, 5, 46);
+}
+
+.displayTotal {
+    height: 15%;
+    width: 100%;
+    
+}
+
+.displayNav {
+    height: 23%;
+    width: 70%;
+    margin: auto;
+    border: 2px solid rgba(4, 5, 46);
+    padding: 1rem;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .7rem;
+    font-weight: bold;
+    color: rgba(4, 5, 46);
+}
+
+.openAccount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    /* border: 1px solid black; */
+}
+
+.circle {
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: rgba(61, 156, 194, 1);
+    border-radius: 50%;
+    /* columns: black; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Here is the CSS for the footer */
+
+footer {
+    display: flex;
+    padding: .8rem;
+    justify-content: center;
+    gap: 100px;
+    font-size: .8rem;
+}

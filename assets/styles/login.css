@@ -11,7 +11,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background: url('http://89.23.108.116/BlueAmariOnline/assets/media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
+    background: url('../media/images/alesia-kazantceva-VWcPlbHglYc-unsplash.jpg');
     background-repeat: no-repeat;
     /* background-position: 100% 100%; */
     background-size: cover;
@@ -67,8 +67,8 @@ footer {
 }
 
 .formContainer2 {
-    width: 40%;
-    height: 80%;
+    width: 50%;
+    height: 90%;
     background-color: aliceblue;
     border-radius: 10px;
     display: flex;
@@ -76,7 +76,6 @@ footer {
     justify-content: center;
     /* opacity: 0.9; */
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
-    display: none;
 }
 
 .formContainer3 {
@@ -101,13 +100,45 @@ form {
     /* border: 1px solid black; */
 }
 
+#registrationForm {
+    height: 95%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.formEntries {
+    display: flex;
+    justify-content: space-between;
+    font-size: .8rem;
+    /* border: 1px solid black; */
+}
+
+.sideA {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sideB {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 label {
     color: rgb(51, 51, 51);
 }
 
 input {
     color: black;
-    height: 2.5rem;
+    height: 2.3rem;
     width: 100%;
     font-style: italic;
     padding-left: 5px;
@@ -138,12 +169,35 @@ input[type=checkbox] {
     justify-content: center;
 }
 
+#registerButton {
+    width: 10rem;
+    height: 2.3rem;
+    background-color: #0770e8;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+}
+
 .forgot {
     width: 100%;
     height: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.forgot2 {
+    width: 100%;
+    height: 17%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid black; */
 }
 
 .contactUs {
