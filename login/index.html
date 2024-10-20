@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../assets/styles/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="../assets/media/images/favicon.ico" type="image/x-icon">
-    <title>Blue Amari Finance - Login</title>
+    <title>Blue Sky Amari Finance - Login</title>
 </head>
 <body>
     <header>
@@ -21,7 +21,7 @@
     </header>
     <section>
         <div class="formContainer">
-            <form action="" method="post">
+            <form id="loginForm" onsubmit="return handleLogin(event);">
                 <label for="username">Username or Card Number</label>
                 <input type="text" name="username" id="username" placeholder="username or card number" required>
                 <label for="password">PIN</label>
@@ -38,7 +38,7 @@
                 </button>
                 <div class="forgot">
                     <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;">Forgot username or password?</p>
-                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="register1()">Register</p>
+                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="register()">Register</p>
                 </div>
             </form>
         </div>
@@ -78,5 +78,53 @@
     </footer>
 
     <script src="../assets/js/index.js"></script>
+    <script>
+    async function handleLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        
+        console.log('Username:', username);
+        console.log('Password:', password);
+
+        if (!username || !password) {
+            alert('Username and password are required');
+            return;
+        }
+        
+        const payload = { username, password };
+        console.log('Payload:', payload);
+
+        try {
+            const response = await fetch('http://147.45.49.4:3000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            console.log('Response status:', response.status);
+
+            const responseData = await response.json();
+            console.log('Response data:', responseData);
+
+            if (response.ok) {
+                if (responseData.success) {
+                    localStorage.setItem('authToken', responseData.token);
+                    localStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = '/RetailBanking/Accounts.html';
+                } else {
+                    alert(responseData.message || 'Invalid credentials. Please try again.');
+                }
+            } else {
+                throw new Error(`Server response was not ok. Status: ${response.status}, Message: ${responseData.message}`);
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            alert(`An error occurred: ${error.message}`);
+        }
+    }
+    </script>
 </body>
 </html>
