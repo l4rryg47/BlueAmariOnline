@@ -21,9 +21,9 @@
     </header>
     <section>
         <div class="formContainer">
-            <form id="loginForm" onsubmit="return handleLogin(event);">
-                <label for="username">Username or Card Number</label>
-                <input type="text" name="username" id="username" placeholder="username or card number" required>
+            <form id="loginForm">
+                <label for="userName">Username or Card Number</label>
+                <input type="text" name="userName" id="userName" placeholder="username or card number" required>
                 <label for="password">PIN</label>
                 <input type="password" name="password" id="password" placeholder="password" required>
                 <div class="checkBox">
@@ -79,52 +79,45 @@
 
     <script src="../assets/js/index.js"></script>
     <script>
-    async function handleLogin(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-        
-        console.log('Username:', username);
-        console.log('Password:', password);
+        document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-        if (!username || !password) {
-            alert('Username and password are required');
+    const userName = document.getElementById('userName').value;
+    const password = document.getElementById('password').value;
+
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userName, password })
+        });
+
+        // Check if the response is OK (status code 200-299)
+        if (!response.ok) {
+
+            const errorText = await response.text();
+            alert(`Error: ${errorText || 'Login failed'}`);
             return;
         }
+
+        // Parse response as JSON if the request was successful
+        const data = await response.json();
         
-        const payload = { username, password };
-        console.log('Payload:', payload);
+        // Store token and redirect
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('fullName', data.fullName);
+        localStorage.setItem('lastLogin', data.lastLogin);
+        localStorage.setItem('userName', data.userName);
+        window.location.href = '/RetailBanking/Accounts.html';
 
-        try {
-            const response = await fetch('http://147.45.49.4:3000/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload),
-            });
-
-            console.log('Response status:', response.status);
-
-            const responseData = await response.json();
-            console.log('Response data:', responseData);
-
-            if (response.ok) {
-                if (responseData.success) {
-                    localStorage.setItem('authToken', responseData.token);
-                    localStorage.setItem('isLoggedIn', 'true');
-                    window.location.href = '/RetailBanking/Accounts.html';
-                } else {
-                    alert(responseData.message || 'Invalid credentials. Please try again.');
-                }
-            } else {
-                throw new Error(`Server response was not ok. Status: ${response.status}, Message: ${responseData.message}`);
-            }
-        } catch (error) {
-            console.error('Login error:', error);
-            alert(`An error occurred: ${error.message}`);
-        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred during login');
     }
+});
     </script>
+    <script src="../assets/js/login.js"></script>
 </body>
 </html>

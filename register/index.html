@@ -21,11 +21,14 @@
     </header>
     <section>
         <div class="formContainer2">
-            <form id="registrationForm" action="http://localhost:3000/api/register" method="POST">
+            <form id="registrationForm" action="" method="POST">
                 <div>
-                    <h2 style="color: black;">Register an Account</h2>
+                    <h2 style="color: black; margin-bottom: 15px;" id="registerTitle">Register an Account</h2>
                 </div>
-                <div class="formEntries">
+                <div class="backArrow" id="backArrow">
+                    Back
+                </div>
+                <div class="formEntries"  id="sideHidden">
                     <div class="sideA">
                         <label for="fullName">Enter Your Full Names</label>
                         <input type="text" name="fullName" id="fullName" placeholder="First Name, Last Name" required>
@@ -47,14 +50,37 @@
                         <input type="text" name="authPin" id="authPin" placeholder="PIN" required>
                     </div>
                 </div>
-                <div class="forgot2">
+                <div class="formEntries2"  id="showHidden">
+                    <div class="sideC">
+                        <label for="accBalance1">Fixed Deposit balance</label>
+                        <input type="text" name="accBalance1" id="accBalance1" placeholder="For fixed deposit account" required>
+                        <label for="accBalance2">Card Balance</label>
+                        <input type="text" name="accBalance2" id="accBalance2" placeholder="For Card" required>
+                        <label for="accBalance3">Savings Balance</label>
+                        <input type="text" name="accBalance3" id="accBalance3" placeholder="For Savings" required>
+                    </div>
+                    <!-- <div class="sideD">
+                        <label for="amount">Amount</label>
+                        <input type="text" name="amount" id="amount" placeholder="Amount" required>
+                        <label for="balance">Balance</label>
+                        <input type="text" name="balance" id="balance" placeholder="Balance" required>
+                    </div> -->
+                </div>
+                <div class="forgot2" style="margin-top: 20px;" id="forgot2">
+                    <button type="button" id="registerButtonNext">
+                        <p>Next</p>
+                        <span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="forgot3" style="margin-top: 20px;" id="forgot3">
                     <button type="submit" id="registerButton">
                         <span>
                             <i class="fa-solid fa-lock"></i>
                         </span>
                         <p>Register</p>
                     </button>
-                    <p style="color: black; font-size: .7rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="login()">Already have an account? Login</p>
                 </div>
             </form>
         </div>
@@ -94,56 +120,9 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('registrationForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            console.log('Form submission triggered');
-
-            const formData = new FormData(e.target);
-            const userData = Object.fromEntries(formData.entries());
-
-            // Client-side data sanitization
-            userData.fullName = userData.fullName.trim();
-            userData.email = userData.email.trim().toLowerCase();
-            userData.userName = userData.userName.trim();
-
-            // Convert the date to ISO format
-            if (userData.dob) {
-                const dobDate = new Date(userData.dob);
-                if (!isNaN(dobDate.getTime())) {
-                    userData.dob = dobDate.toISOString().split('T')[0];
-                }
-            }
-
-            console.log('Sending registration data:', userData);
-
-            async function registerUser(userData) {
-                try {
-                    const response = await fetch('http://localhost:3000/api/register', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(userData),
-                    });
-
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.message); // Handle error message from server
-                    }
-
-                    const data = await response.json();
-                    alert(data.message); // Show success message
-                } catch (error) {
-                    console.error('Registration error:', error);
-                    alert('Registration failed: ' + error.message);
-                }
-            }
-
-            await registerUser(userData); // Call the registerUser function with userData
-        });
-    </script>
 
     <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/register.js"></script>
+
 </body>
 </html>

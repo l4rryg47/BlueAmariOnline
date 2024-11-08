@@ -1,0 +1,105 @@
+<!-- Project coded vanilla from scratch by SNK for CMC||RIP FL3XY-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../assets/media/images/favicon.ico" type="image/x-icon">
+    <title>Blue Amari Finance - Register</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+    
+            if (!token) {
+                window.location.href = '../login/index.html';
+            } else {
+                // Remove the 'hidden' class to reveal the content
+                document.body.classList.remove('hidden');
+            }
+        });
+    </script>
+</head>
+<body class="hidden">
+    <header>
+        <div class="navBar">
+            <div class="logo" onclick="homepage()">
+                <img src="../assets/media/images/Untitled-removebg-preview.png" alt="BlueAmarie-Logo" style="height: auto; max-width: 100%;">
+                <div class="logoTitle" style="font-size: 1.5rem; font-weight: semi-bold;">Blue Amarie Finance</div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="formContainer3">
+            <h2 style="color: black;">Transaction History Created!</h2>
+            <div style="display: flex; gap: 30px;">
+                <p style="color: black; font-size: .7rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="login()">Create another history</p>
+                <p style="color: black; font-size: .7rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="register()">Register new user</p>
+                <p style="color: black; font-size: .7rem; color: rgb(95, 95, 233); cursor: pointer;" id="returnPage">Return to homepage(Logout)</p>
+            </div>
+        </div>
+        
+    </section>
+    <footer>
+        <div class="contactUs">
+            <div id="contactUs" style="display: flex;">
+                <p>Need to talk to us directly?</p>
+                <a style="color: #81ade0; text-decoration: none;" href="">
+                    Contact Us
+                    <i class="fa-solid fa-angle-right" style="color: #81ade0;"></i>
+                </a>
+            </div>
+            <p id="contactSocials">Contact Blue Amarie on any of our socials below</p>
+            <div class="socials">
+                <div class="socialCircle">
+                    <img src="../assets/media/images/icons8-twitterx.svg" alt="Twitter-x" style="height: auto; max-width: 100%;">
+                </div>
+                <div class="socialCircle">
+                    <img src="../assets/media/images/instagram-svgrepo-com.svg" alt="Instagram" style="height: auto; max-width: 100%;">
+                </div>
+                <div class="socialCircle">
+                    <img src="../assets/media/images/linkedin-svgrepo-com.svg" alt="Linkedin" style="height: auto; max-width: 100%;">
+                </div>
+                <div class="socialCircle">
+                    <img src="../assets/media/images/youtube-168-svgrepo-com.svg" alt="YouTube" style="height: auto; max-width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="footerMain">
+            <a href="" style="color: #fff; text-decoration: none; font-size: 0.8rem;">Privacy and Security</a>
+            <a href="" style="color: #fff; text-decoration: none; font-size: 0.8rem;">Legal</a>
+            <a href="" style="color: #fff; text-decoration: none; font-size: 0.8rem;">Accessibility</a>
+            <a href="" style="color: #fff; text-decoration: none; font-size: 0.8rem;">About Us</a>
+            <a href="" style="color: #fff; text-decoration: none; font-size: 0.8rem;">Site Index</a>
+        </div>
+    </footer>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () =>{
+            
+            document.getElementById('returnPage').addEventListener('click', ()=> {
+                localStorage.removeItem('token')
+                location.href = '../index.html'
+            })
+        })
+
+
+
+        function login() {
+            location.href = 'createTransaction.html'
+        }
+
+        function register() {
+            location.href = 'index.html'
+        }
+
+        
+    </script>
+    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/register.js"></script>
+
+</body>
+</html>

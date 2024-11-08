@@ -91,6 +91,14 @@ footer {
     display: none;
 }
 
+.formContainer3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
 form {
     height: 80%;
     width: 80%;
@@ -109,11 +117,27 @@ form {
     /* border: 1px solid black; */
 }
 
+#registrationForm1{
+    height: 95%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
 .formEntries {
     display: flex;
     justify-content: space-between;
     font-size: .8rem;
     /* border: 1px solid black; */
+}
+
+.formEntries2 {
+    display: flex;
+    justify-content: space-between;
+    font-size: .8rem;
+    display: none;
 }
 
 .sideA {
@@ -130,6 +154,29 @@ form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.sideC {
+    display: flex;
+    width: 45%;
+    height: 100%;
+    flex-direction: column;
+    gap: 5px;  
+}
+
+.sideD {
+    display: flex;
+    width: 45%;
+    height: 100%;
+    flex-direction: column;
+    gap: 5px;  
+}
+
+.backArrow {
+    font-size: .9rem;
+    color: blue;
+    cursor: pointer;
+    display: none;
 }
 
 label {
@@ -182,6 +229,19 @@ input[type=checkbox] {
     justify-content: center;
 }
 
+#registerButtonNext {
+    width: 10rem;
+    height: 2.3rem;
+    background-color: #0770e8;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-weight: bold;
+    justify-content: center;
+}
+
 .forgot {
     width: 100%;
     height: 2rem;
@@ -198,6 +258,25 @@ input[type=checkbox] {
     align-items: center;
     justify-content: space-between;
     /* border: 1px solid black; */
+}
+
+.forgot3 {
+    width: 100%;
+    height: 17%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+
+.forgot4 {
+    width: 100%;
+    height: 17%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .contactUs {

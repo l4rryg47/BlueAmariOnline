@@ -1,0 +1,126 @@
+<!-- Project coded vanilla from scratch by SNK for CMC||RIP FL3XY-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/media/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Blue Sky Amari Finance</title>
+  </head>
+  <style>
+    tr:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+
+  </style>
+  <body>
+    <div class="hamburgerMenu">
+      <div class="transparent">
+        <div id="logo">
+          <img
+            src="./assets/media/images/Untitled-removebg-preview.png"
+            alt="BlueAmarie-Logo"
+            style="height: auto; max-width: 100%"
+          />
+        </div>
+        <div class="menuItems">
+          <a href="#" id="menuItems">Home</a>
+          <a href="http://" id="menuItems">Services</a>
+          <a href="http://" id="menuItems">FAQs</a>
+          <a href="http://" id="menuItems">Contact Us</a>
+        </div>
+        <div class="accessButtons">
+          <button type="button" id="loginBtn">Log In</button>
+        </div>
+      </div>
+      <div class="menu">
+        <div class="close">Close X</div>
+      </div>
+    </div>
+    <header>
+      <div class="navBar">
+        <div class="logo" style="width: auto;">
+          <img
+            src="./assets/media/images/Untitled-removebg-preview.png"
+            alt=""
+            style="height: auto; max-width: 100%"
+          />
+        </div>
+        <div class="hamburger">
+          <span id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+        </div>
+        <div id="navMenu" style="width: 100%; justify-content: space-around;">
+          <div class="navMenu" style="width: 80%;">
+            <div class="home" id="listUser">List all Users</div>
+            <div class="services" id="listTransactions">List all transaction</div>
+            <div class="faqs" id="newUser">Create New User</div>
+            <div class="contactUs" id="newTransaction">Create new Transaction</div>
+            <div class="contactUs">Delete User</div>
+            <div class="contactUs">Delete Transaction</div>
+          </div>
+          
+        </div>
+      </div>
+    </header>
+    
+    <section style="overflow-x: scroll; padding: 1.5rem; background-color: rgb(1, 25, 37); width: 80%; margin: auto; border-radius: 10px; box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5), inset 5px 5px 10px 0px rgba(0, 0, 0, 0.3);">
+        <!-- My Table here -->
+        <h2>Users List</h2>
+        <table id="usersTable" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- User data will be populated here -->
+            </tbody>
+        </table>
+
+        <h2>Transactions List</h2>
+        <table id="transactionsTable" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Transaction Date</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                    <th>Status</th>
+                    <th>Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Transaction data will be populated here -->
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+      <div class="footerContent">
+        Copyright &#169; 2024. Blue Amari Finance Limited
+      </div>
+    </footer>
+
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
+  </body>
+</html>

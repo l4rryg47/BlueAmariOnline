@@ -312,6 +312,11 @@ wrap-lastFeature {
     cursor: pointer;
 }
 
+.home, .services, .faqs, .contactUs {
+    cursor: pointer;
+    font-weight: 500;
+}
+
 .menuItems {
     width: 100%;
     height: 30%;

@@ -2,121 +2,166 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/main.css">
-    <link rel="shortcut icon" href="./assets/media/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/media/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Blue Sky Amari Finance</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="hamburgerMenu">
-        <div class="transparent">
-            <div id="logo">
-                <img src="./assets/media/images/Untitled-removebg-preview.png" alt="BlueAmarie-Logo" style="height: auto; max-width: 100%;">
-            </div>
-            <div class="menuItems">
-                <a href="#" id="menuItems">Home</a>
-                <a href="http://" id="menuItems">Services</a>
-                <a href="http://" id="menuItems">FAQs</a>
-                <a href="http://" id="menuItems">Contact Us</a>
-            </div>
-            <div class="accessButtons">
-                <button type="button" onclick="login()">Log In</button>
-                <button type="button" onclick="register()">Register</button>
-            </div>
+      <div class="transparent">
+        <div id="logo">
+          <img
+            src="./assets/media/images/Untitled-removebg-preview.png"
+            alt="BlueAmarie-Logo"
+            style="height: auto; max-width: 100%"
+          />
         </div>
-        <div class="menu">
-            <div class="close">
-                Close X
-            </div>
-            
+        <div class="menuItems">
+          <a href="#" id="menuItems">Home</a>
+          <a href="http://" id="menuItems">Services</a>
+          <a href="http://" id="menuItems">FAQs</a>
+          <a href="http://" id="menuItems">Contact Us</a>
         </div>
+        <div class="accessButtons">
+          <button type="button" id="loginBtn">Log In</button>
+        </div>
+      </div>
+      <div class="menu">
+        <div class="close">Close X</div>
+      </div>
     </div>
     <header>
-        <div class="navBar">
-            <div class="logo">
-                <img src="./assets/media/images/Untitled-removebg-preview.png" alt="" style="height: auto; max-width: 100%;">
-            </div>
-            <div class="hamburger">
-                <span id="hamburger">
-                    <i class="fa-solid fa-bars"></i>
-                </span>
-            </div>
-            <div id="navMenu">
-                <div class="navMenu">
-                    <div class="home">Home</div>
-                    <div class="services">Services</div>
-                    <div class="faqs">FAQs</div>
-                    <div class="contactUs">Contact Us</div>
-                </div>
-                <div class="callToAction">
-                    <button type="button" onclick="login()">Log In</button>
-                    <button type="button" onclick="register()">Register</button>
-                </div>
-            </div>
+      <div class="navBar">
+        <div class="logo">
+          <img
+            src="./assets/media/images/Untitled-removebg-preview.png"
+            alt=""
+            style="height: auto; max-width: 100%"
+          />
         </div>
+        <div class="hamburger">
+          <span id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+        </div>
+        <div id="navMenu">
+          <div class="navMenu">
+            <div class="home">Home</div>
+            <div class="services">Services</div>
+            <div class="faqs">FAQs</div>
+            <div class="contactUs">Contact Us</div>
+          </div>
+          <div class="callToAction">
+            <button type="button" id="loginBtn1">Log In</button>
+          </div>
+        </div>
+      </div>
     </header>
     <section>
-        <div class="hero">
-            <div class="heroHeader">
-                <h1>A Touch of Class in</h1>
-                <h1>Your Every Financial Decision</h1>
-            </div>
-            <div class="heroSubHeader">
-                <p id="heroSubHeader1">Financial decisions don't have to be stressful or complicated.</p>
-                <p id="heroSubHeader2">Here, we believe in taking a sophisticated approach to your money management</p>
-            </div>
-            <div class="heroButton">
-                <button type="button" id="getStarted">
-                    Get started
-                    <span>
-                        <i class="fa-solid fa-circle-arrow-right"></i>
-                    </span>
-                </button>
-                <div class="users">
-                    <div id="circle">
-                        <div class="circle circle1">
-                            <img src="./assets/media/images/rating1.jpg" alt="user-rating" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                        </div>
-                        <div class="circle circle2">
-                            <img src="./assets/media/images/rating2.jpg" alt="user-rating" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                        </div>
-                        <div class="circle circle3">
-                            <img src="./assets/media/images/rating3.jpg" alt="user-rating" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                        </div>
-                    </div>
-                    <div class="vouch">
-                        <p>Trusted by over 20M+</p>
-                        <p>people all over the world.</p>
-                    </div>
-                </div>
-            </div>
+      <div class="hero">
+        <div class="heroHeader">
+          <h1>A Touch of Class in</h1>
+          <h1>Your Every Financial Decision</h1>
         </div>
-        <div class="features">
-            <div id="feature" class="normalFeature">
-                <div class="2M" id="featureBox">
-                    <div style="font-size: 1.5rem; font-weight: bold;">2M+</div>
-                    <div>Active Users</div>
-                </div>
-                <div class="5K" id="featureBox">
-                    <div style="font-size: 1.5rem; font-weight: bold;">75+</div>
-                    <div>Countries Supported</div>
-                </div>
-                <div class="40B" id="featureBox">
-                    <div style="font-size: 1.5rem; font-weight: bold;">4.9</div>
-                    <div>Trust Pilot Rating</div>
-                </div>
-            </div>
+        <div class="heroSubHeader">
+          <p id="heroSubHeader1">
+            Financial decisions don't have to be stressful or complicated.
+          </p>
+          <p id="heroSubHeader2">
+            Here, we believe in taking a sophisticated approach to your money
+            management
+          </p>
         </div>
+        <div class="heroButton">
+          <button type="button" id="getStarted">
+            Get started
+            <span>
+              <i class="fa-solid fa-circle-arrow-right"></i>
+            </span>
+          </button>
+          <div class="users">
+            <div id="circle">
+              <div class="circle circle1">
+                <img
+                  src="./assets/media/images/rating1.jpg"
+                  alt="user-rating"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                  "
+                />
+              </div>
+              <div class="circle circle2">
+                <img
+                  src="./assets/media/images/rating2.jpg"
+                  alt="user-rating"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                  "
+                />
+              </div>
+              <div class="circle circle3">
+                <img
+                  src="./assets/media/images/rating3.jpg"
+                  alt="user-rating"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 50%;
+                  "
+                />
+              </div>
+            </div>
+            <div class="vouch">
+              <p>Trusted by over 20M+</p>
+              <p>people all over the world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="features">
+        <div id="feature" class="normalFeature">
+          <div class="2M" id="featureBox">
+            <div style="font-size: 1.5rem; font-weight: bold">2M+</div>
+            <div>Active Users</div>
+          </div>
+          <div class="5K" id="featureBox">
+            <div style="font-size: 1.5rem; font-weight: bold">75+</div>
+            <div>Countries Supported</div>
+          </div>
+          <div class="40B" id="featureBox">
+            <div style="font-size: 1.5rem; font-weight: bold">4.9</div>
+            <div>Trust Pilot Rating</div>
+          </div>
+        </div>
+      </div>
     </section>
     <footer>
-        <div class="footerContent">
-            Copyright &#169; 2024. Blue Amari Finance Limited
-        </div>
+      <div class="footerContent">
+        Copyright &#169; 2024. Blue Amari Finance Limited
+      </div>
     </footer>
 
     <script src="./assets/js/index.js"></script>
-</body>
+  </body>
 </html>

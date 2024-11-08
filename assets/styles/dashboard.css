@@ -1,0 +1,41 @@
+.dashboard-content {
+  padding: 20px;
+  margin: 20px;
+}
+
+.content-view {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-item {
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.nav-item i {
+  margin-right: 8px;
+}

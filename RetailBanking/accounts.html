@@ -15,16 +15,20 @@
     <link rel="stylesheet" href="../assets/styles/transactionHistory.css">
     <title>Retail Banking - Dashboard</title>
     <script>
-        // Add this script to check for authentication
-        function checkAuth() {
-            if (localStorage.getItem('isLoggedIn') !== 'true') {
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+    
+            if (!token) {
                 window.location.href = '../login/index.html';
+            } else {
+                // Remove the 'hidden' class to reveal the content
+                document.body.classList.remove('hidden');
             }
-        }
-        checkAuth();
+        });
     </script>
+    
 </head>
-<body>
+<body class="hidden">
     <header>
         <div class="logo">
             <div id="logoTitle">NETBANKING</div>
@@ -41,7 +45,7 @@
                 </div>
                 <div class="profile">
                     <p id="passwordChange">Change Password</p>
-                    <p id="profileDetails">Profile Details</p>
+                    <p id="profileDetails">Settings</p>
                     <button type="button">Logout</button>
                 </div>
             </div>
@@ -148,77 +152,149 @@
                 <div class="advert">PLACE YOUR ADVERT HERE</div>
             </div>
 
-            <div class="faccounts">
+            <div class="faccounts" id="faccounts">
                 <div class="accountTitle">
                     <h2>Funds Transfer</h2>
                 </div>
                 <div class="mutualFundsDisplay">
                     <div class="mutualFundsDisplayHeader">
-                        <div class="description">You have not created any mutual funds.</div>
+                        <div class="description">Initiate funds transfer.</div>
                         <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
                     </div>
+                    <form action="" id="transferForm">
+                        <div>Transfer type</div>
+                        <select name="transferType" id="transferType" onchange="reloadform()">
+                            <option value="local">Local Transfer</option>
+                            <option value="international">International Transfer</option>
+                        </select>
+                        <div class="beneficiary">
+                            <div class="bankDetails">
+                                <div><strong>Bank Details</strong></div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 33%;">
+                                        <label for="bankName">Bank Name:</label>
+                                    </div>
+                                    <div style="width: 65%;">
+                                        <input type="text" name="bankName" id="bankName" required>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 33%;">
+                                        <label for="bankAdd">Bank Address:</label>
+                                    </div>
+                                    <div style="width: 65%;">
+                                        <input type="text" name="bankAdd" id="bankAdd" required>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 33%;">
+                                        <label for="iban">ACC No./IBAN:</label>
+                                    </div>
+                                    <div style="width: 65%;">
+                                        <input type="text" name="iban" id="iban" required>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 33%;">
+                                        <label for="swift">ROUTING/SWIFT/BIC:</label>
+                                    </div>
+                                    <div style="width: 65%;">
+                                        <input type="text" name="swift" id="swift" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="beneDetails">
+                                <div><strong>Beneficiary Details</strong></div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 33%;">
+                                        <label for="benName">Beneficiary Name:</label>
+                                    </div>
+                                    <div style="width: 65%;">
+                                        <input type="text" name="benName" id="benName" required>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 33%;">
+                                        <label for="benAdd">Beneficiary Address:</label>
+                                    </div>
+                                    <div style="width: 65%;">
+                                        <input type="text" name="benAdd" id="benAdd" required>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 33%;">
+                                        <label for="benContact">Contact:</label>
+                                    </div>
+                                    <div style="width: 65%;">
+                                        <input type="text" name="benContact" id="benContact" required>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 33%;">
+                                        <label for="benContact"></label>
+                                    </div>
+                                    <div style="width: 65%; display: flex; justify-content: flex-end;">
+                                        <button type="button" id="nextButton">Next</button>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="transDetails">
+                            <div><strong>Transaction Details</strong></div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 20%;">
+                                        <label for="transAmount">Amount (USD):</label>
+                                    </div>
+                                    <div style="width: 30%;">
+                                        <input type="number" name="transAmount" id="transAmount" required min="1" max="502500">
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 20%;">
+                                        <label for="transDescription">Description:</label>
+                                    </div>
+                                    <div style="width: 30%;">
+                                        <input type="text" name="transDescription" id="transDescription" required>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 20%;">
+                                        <label for="transCharges">Charges:</label>
+                                    </div>
+                                    <div style="width: 30%;">
+                                        <input type="text" name="transCharges" id="transCharges" value="">
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 20%;">
+                                        <button type="button" id="backButton">Back</button>
+                                    </div>
+                                    <div style="width: 30%; display: flex; justify-content: flex-end;">
+                                        <button type="submit">Transfer</button>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="loading">
+                            <div class="loader"></div>
+                        </div>
+                        
+                    </form>
+                    <div class="enterPin">
+                        <div style="display: flex; width: 100%; align-items: center; justify-content: center;">
+                            <div style="width: 20%;">
+                                <label for="enterPin">Enter Transaction Pin:</label>
+                            </div>
+                            <div style="width: 30%;">
+                                <input type="text" name="enterPin" id="enterPin" required>
+                            </div>
+                        </div>
+                        <button type="button" id="approveBtn">Approve</button>
+                    </div>
                     <div class="displayBody">
-                        <div class="up">
-                            <div class="description">
-                            <div id="description">
-                                <p>Create one now?</p>
-                            </div>
-                            
-                            </div>
-                            <div class="amount">
-                                <!-- <div id="amount">
-                                    <p>$500,000.00USD</p>
-                                    <p>$0.00USD</p>
-                                    <p>$2,500.00USD</p>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="mutualFundsDown">
-                            <div class="description">
-                                <!-- <div id="description" style="justify-content: center;">
-                                    <p>TOTAL</p>
-                                </div> -->
-                                </div>
-                                <div class="amount">
-                                    
-                                </div>
-                        </div>
+                        
                     </div>
                     <!-- <div class="displayTotal"></div> -->
-                    <div class="displayNav">
-                        <div class="openAccount">
-                            <div class="circle">
-                                <span style="font-size: 1.3rem;">
-                                    <i class="fa-solid fa-building-columns"></i>
-                                </span>
-                            </div>
-                            <p>Open Account</p>
-                        </div>
-                        <div class="openAccount">
-                            <div class="circle">
-                                <span style="font-size: 1.3rem;">
-                                    <i class="fa-regular fa-credit-card"></i>
-                                </span>
-                            </div>
-                            <p>Apply Credit Card</p>
-                        </div>
-                        <div class="openAccount">
-                            <div class="circle">
-                                <span style="font-size: 1.3rem;">
-                                    <i class="fa-solid fa-hand-holding-dollar"></i>
-                                </span>
-                            </div>
-                            <p>Apply for a loan</p>
-                        </div>
-                        <div class="openAccount">
-                            <div class="circle">
-                                <span style="font-size: 1.3rem;">
-                                    <i class="fa-solid fa-chart-line"></i>
-                                </span>
-                            </div>
-                            <p>Invest with us</p>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="advert">PLACE YOUR ADVERT HERE</div>
             </div>
@@ -461,7 +537,7 @@
                         <div class="up">
                             <div class="description">
                             <div id="description">
-                                <p>Create one now?</p>
+                                <p>Create one now? Contact your accounts officer.</p>
                             </div>
                             
                             </div>
@@ -604,7 +680,7 @@
                 </div>
                 <div class="mutualFundsDisplay">
                     <div class="mutualFundsDisplayHeader">
-                        <div class="description">No new offers. Check back again.</div>
+                        <div class="description">No history for specified dates.</div>
                         <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
                     </div>
                     <div class="displayBody">
@@ -684,13 +760,34 @@
     </footer>
 
 
-    <script src="../assets/js/index.js"></script>
+    <script src="../assets/js/accounts.js"></script>
+    <script src="../assets/js/transfer.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const lastLogin = localStorage.getItem('lastLogin');
+        
+        if (lastLogin) {
+            // Format lastLogin date if needed
+            const formattedDate = new Date(lastLogin).toLocaleString();
+            document.getElementById('todayDate').textContent = `Last Login: ${formattedDate}`;
+        }
+    });
         // Add logout functionality
         document.querySelector('button[type="button"]').addEventListener('click', function() {
             localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('token');
+            localStorage.removeItem('fullName'); 
             window.location.href = '../login/index.html';
         });
+
+        // Display user's name in the welcome message
+document.addEventListener('DOMContentLoaded', () => {
+    const fullName = localStorage.getItem('fullName');
+    if (fullName) {
+        document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
+    }
+});
+
     </script>
 </body>
 </html>

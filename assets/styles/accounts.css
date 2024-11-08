@@ -13,6 +13,12 @@ body {
     background-color: azure;
 }
 
+/* Page protection for unauthorized access */
+body.hidden {
+    display: none;
+}
+
+
 /* This is CSS for the header navigation */
 
 header {
@@ -127,6 +133,11 @@ button {
     justify-content: space-around;
     font-size: .9rem;
     padding-bottom: .5rem;
+}
+
+#bottomNav {
+    justify-content: flex-start;
+    gap: 50px;
 }
 
 /* Here is CSS for the section body */
@@ -341,3 +352,163 @@ footer {
     gap: 100px;
     font-size: .8rem;
 }
+
+.beneficiary {
+    /* border: 1px solid black; */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#transferForm {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: .9rem;
+}
+
+select {
+    width: 8rem;
+    height: 2rem;
+    border: none;
+    background-color: #0770e8;
+    align-items: center;
+    padding: .3rem;
+    outline: none;
+    color: white;
+}
+
+input {
+    height: 2rem;
+    width: 100%;
+    font-size: .8rem;
+    font-weight: 500;
+    padding-left: 5px;
+}
+
+.beneDetails {
+    height: auto;
+    padding: .5rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bankDetails {
+    border-right: 1px solid grey;
+    height: auto;
+    padding: .5rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.transDetails {
+    height: auto;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    display: none;
+}
+
+.enterPin {
+    height: auto;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin: auto;
+    display: none;
+}
+
+.loading {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader {
+    display: none;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #0770e8;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .profileD {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .profilePic {
+    width: 45%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .picBox {
+    height: 10rem;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #0770e8;
+  }
+
+  .demarc {
+    border: 1px solid grey;
+    width: 1px;
+    height: 90%;
+  }
+
+  .profileAddress {
+    /* border: 1px solid black; */
+    width: 45%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .emailAdd, .phoneNumber, .profileAdd {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
