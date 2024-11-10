@@ -59,28 +59,32 @@
                         <label for="accBalance3">Savings Balance</label>
                         <input type="text" name="accBalance3" id="accBalance3" placeholder="For Savings" required>
                     </div>
-                    <!-- <div class="sideD">
-                        <label for="amount">Amount</label>
-                        <input type="text" name="amount" id="amount" placeholder="Amount" required>
-                        <label for="balance">Balance</label>
-                        <input type="text" name="balance" id="balance" placeholder="Balance" required>
-                    </div> -->
+                    <div class="sideD">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" name="cardNumber" id="cardNumber" placeholder="Card Number" required>
+                        <label for="cardExpiry">Card Expiry</label>
+                        <input type="text" name="cardExpiry" id="cardExpiry" placeholder="Card Expiry" required>
+                        <label for="cardCvv">CVV</label>
+                        <input type="text" name="cardCvv" id="cardCvv" placeholder="CVV" required>
+                    </div>
                 </div>
-                <div class="forgot2" style="margin-top: 20px;" id="forgot2">
+                <div class="forgot2" style="margin-top: 10px;" id="forgot2">
                     <button type="button" id="registerButtonNext">
                         <p>Next</p>
                         <span>
                             <i class="fa-solid fa-angle-right"></i>
                         </span>
                     </button>
+                    <p style="color: blue; font-size: .7rem; margin-top: 5px; cursor: pointer;" onclick="backToAdmin()">Back to Admin Dashboard</p>
                 </div>
-                <div class="forgot3" style="margin-top: 20px;" id="forgot3">
+                <div class="forgot3" style="margin-top: 10px;" id="forgot3">
                     <button type="submit" id="registerButton">
                         <span>
                             <i class="fa-solid fa-lock"></i>
                         </span>
                         <p>Register</p>
                     </button>
+                    <p style="color: blue; font-size: .7rem; margin-top: 5px; cursor: pointer;" onclick="backToAdmin()">Back to Admin Dashboard</p>
                 </div>
             </form>
         </div>

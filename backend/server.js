@@ -9,7 +9,7 @@ connectDB();
 // Configure CORS settings
 const corsOptions = {
     origin: '*',
-    methods: ['GET', 'POST'], // Allow only necessary HTTP methods
+    methods: ['GET', 'POST', 'DELETE', 'PUT'], // Allow only necessary HTTP methods
     credentials: true, // Allow credentials if needed
 };
 

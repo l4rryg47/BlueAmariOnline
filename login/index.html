@@ -22,9 +22,9 @@
     <section>
         <div class="formContainer">
             <form id="loginForm">
-                <label for="userName">Username or Card Number</label>
+                <label for="userName">Username</label>
                 <input type="text" name="userName" id="userName" placeholder="username or card number" required>
-                <label for="password">PIN</label>
+                <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="password" required>
                 <div class="checkBox">
                     <input type="checkbox" name="checkbox" id="checkbox">
@@ -38,7 +38,6 @@
                 </button>
                 <div class="forgot">
                     <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;">Forgot username or password?</p>
-                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;" onclick="register()">Register</p>
                 </div>
             </form>
         </div>
@@ -110,6 +109,10 @@
         localStorage.setItem('fullName', data.fullName);
         localStorage.setItem('lastLogin', data.lastLogin);
         localStorage.setItem('userName', data.userName);
+        localStorage.setItem('cardNumber', data.cardNumber);
+        localStorage.setItem('cardCvv', data.cardCvv);
+        localStorage.setItem('cardExpiry', data.cardExpiry);
+        localStorage.setItem('accBalance2', data.accBalance2);
         window.location.href = '/RetailBanking/Accounts.html';
 
     } catch (error) {

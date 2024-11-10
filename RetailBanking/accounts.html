@@ -26,7 +26,29 @@
             }
         });
     </script>
+    <style>
+        tr:nth-child(even) {
+      background-color: rgba(150, 212, 212, 0.4);
+    }
+    table {
+      border: 1px solid whitesmoke;
+    }
     
+    th, td {
+      height: 2rem;
+      width: auto;
+    }
+    
+    th {
+      border-bottom: 2px solid whitesmoke;
+    }
+    
+    td {
+      /* border-right: 1px solid whitesmoke; */
+      padding-left: 2px;
+    }
+    
+      </style>
 </head>
 <body class="hidden">
     <header>
@@ -64,7 +86,7 @@
         <div class="leftSection">
             <div class="myAccounts">My Accounts</div>
             <div class="payBills">Pay Bills</div>
-            <div class="transaction">Transaction History</div>
+            <div class="transaction" id="showTransactions">Transaction History</div>
             <div class="enquire">Enquire</div>
             <div class="request">Request</div>
         </div>
@@ -379,35 +401,55 @@
                     <h2>Cards</h2>
                 </div>
                 <div class="mutualFundsDisplay">
-                    <div class="mutualFundsDisplayHeader">
-                        <div class="description">You do not have any active cards.</div>
-                        <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
-                    </div>
-                    <div class="displayBody">
-                        <div class="up">
-                            <div class="description">
-                            <div id="description">
-                                <p>Request and activate a new card to enjoy the benefits of card banking.</p>
-                            </div>
-                            
-                            </div>
-                            <div class="amount">
-                                <!-- <div id="amount">
-                                    <p>$500,000.00USD</p>
-                                    <p>$0.00USD</p>
-                                    <p>$2,500.00USD</p>
-                                </div> -->
-                            </div>
+                    
+                    <div class="cardDisplay" style="width: 60%; height: 70%; margin: auto; display: flex; justify-content: space-between;">
+                        <div class="cardDetails" style="width: 50%; display: flex; flex-direction: column; gap: 15px; padding: 10px; font-size: .85rem;">
+                            <p id="cardHolder">Name: </p>
+                            <p id="cardNumber">Card Number: </p>
+                            <p id="cardExpiry">Expiry: </p>
+                            <p id="cardCvv">CVV: </p>
+                            <p id="accBalance2">Balance:</p>
                         </div>
-                        <div class="mutualFundsDown">
-                            <div class="description">
-                                <!-- <div id="description" style="justify-content: center;">
-                                    <p>TOTAL</p>
-                                </div> -->
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-inner">
+                                    <div class="front">
+                                        <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
+                                        <div class="row">
+                                            <img src="https://i.ibb.co/G9pDnYJ/chip.png" width="30px">
+                                            <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="30px">
+                                        </div>
+                                        <div class="row card-no">
+                                            <p id="displayCardNumber">544</p>
+                                        </div>
+                                        <div class="row card-holder">
+                                            <p>CARD HOLDER</p>
+                                            <p>VALID TILL</p>
+                                        </div>
+                                        <div class="row name">
+                                            <p id="holder"></p>
+                                            <p id="cardValidity"></p>
+                                        </div>
+                                    </div>
+                                    <div class="back">
+                                        <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
+                                        <div class="bar"></div>
+                                        <div class="row card-cvv">
+                                            <div>
+                                                <img src="https://i.ibb.co/S6JG8px/pattern.png">
+                                            </div>
+                                            <p id="cardCvvNumber"></p>
+                                        </div>
+                                        <div class="row card-text">
+                                            <p>this is a property of Blue Sky Amaris Finance. If found please return to the nearest office of Blue Sky Amaris. Or hand over to the authorities.</p>
+                                        </div>
+                                        <div class="row signature">
+                                            <p>ELECTRONIC SIGNATURE</p>
+                                            <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="50px">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="amount">
-                                    
-                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- <div class="displayTotal"></div> -->
@@ -679,72 +721,30 @@
                     <h2>Transaction History</h2>
                 </div>
                 <div class="mutualFundsDisplay">
-                    <div class="mutualFundsDisplayHeader">
-                        <div class="description">No history for specified dates.</div>
+                    <div class="mutualFundsDisplayHeader" style="margin-bottom: 20px;">
+                        <div class="description">Account activity history.</div>
                         <!-- <div class="amount" style="color: black;">$502,500.00USD</div> -->
                     </div>
-                    <div class="displayBody">
-                        <div class="up">
-                            <div class="description">
-                            <div id="description">
-                                
-                            </div>
-                            
-                            </div>
-                            <div class="amount">
-                                <!-- <div id="amount">
-                                    <p>$500,000.00USD</p>
-                                    <p>$0.00USD</p>
-                                    <p>$2,500.00USD</p>
-                                </div> -->
-                            </div>
-                        </div>
-                        <div class="mutualFundsDown">
-                            <div class="description">
-                                <!-- <div id="description" style="justify-content: center;">
-                                    <p>TOTAL</p>
-                                </div> -->
-                                </div>
-                                <div class="amount">
-                                    
-                                </div>
-                        </div>
-                    </div>
-                    <!-- <div class="displayTotal"></div> -->
-                    <div class="displayNav">
-                        <div class="openAccount">
-                            <div class="circle">
-                                <span style="font-size: 1.3rem;">
-                                    <i class="fa-solid fa-building-columns"></i>
-                                </span>
-                            </div>
-                            <p>Open Account</p>
-                        </div>
-                        <div class="openAccount">
-                            <div class="circle">
-                                <span style="font-size: 1.3rem;">
-                                    <i class="fa-regular fa-credit-card"></i>
-                                </span>
-                            </div>
-                            <p>Apply Credit Card</p>
-                        </div>
-                        <div class="openAccount">
-                            <div class="circle">
-                                <span style="font-size: 1.3rem;">
-                                    <i class="fa-solid fa-hand-holding-dollar"></i>
-                                </span>
-                            </div>
-                            <p>Apply for a loan</p>
-                        </div>
-                        <div class="openAccount">
-                            <div class="circle">
-                                <span style="font-size: 1.3rem;">
-                                    <i class="fa-solid fa-chart-line"></i>
-                                </span>
-                            </div>
-                            <p>Invest with us</p>
-                        </div>
-                    </div>
+                    <div class="tableDisplay">
+                        <div class="transactionsTable">
+                            <table id="transactionsTable" style="width: 100%; font-size: .8rem; font-weight: 500;">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction Date</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                        <th>Amount</th>
+                                        <th>Balance</th>
+                                        <th>Status</th>
+                                        <th>Method</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Transaction data will be populated here -->
+                                </tbody>
+                            </table>
+                          </div>
+                    </div>                    
                 </div>
                 <div class="advert">PLACE YOUR ADVERT HERE</div>
             </div>
@@ -774,7 +774,6 @@
     });
         // Add logout functionality
         document.querySelector('button[type="button"]').addEventListener('click', function() {
-            localStorage.removeItem('isLoggedIn');
             localStorage.removeItem('token');
             localStorage.removeItem('fullName'); 
             window.location.href = '../login/index.html';
@@ -783,11 +782,43 @@
         // Display user's name in the welcome message
 document.addEventListener('DOMContentLoaded', () => {
     const fullName = localStorage.getItem('fullName');
+    const cardNumber = localStorage.getItem('cardNumber');
+    const cardExpiry = localStorage.getItem('cardExpiry');
+    const cardCvv = localStorage.getItem('cardCvv');
+    const accBalance2 = localStorage.getItem('accBalance2')
     if (fullName) {
         document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
+        document.getElementById('cardHolder').textContent = `Card Holder: ${fullName}`;
+        document.getElementById('holder').textContent = `${fullName}`;
+    }
+
+    if (cardNumber) {
+        // Remove commas from the card number
+        const cleanedCardNumber = cardNumber.replace(/,/g, ''); // Remove all commas
+
+        // Split into groups of 4
+        const splitCardNumber = cleanedCardNumber.match(/.{1,4}/g); // Split into groups of 4
+        const formattedCardNumber = splitCardNumber.join(' '); // Join with spaces for display
+
+        // Display formatted card number
+        document.getElementById('cardNumber').textContent = `Card Number: ${formattedCardNumber}`;
+        document.getElementById('displayCardNumber').textContent = `${formattedCardNumber}`;
+    }
+    
+    if(cardExpiry) {
+        document.getElementById('cardExpiry').textContent = `Expiry: ${cardExpiry}`;
+        document.getElementById('cardValidity').textContent = `${cardExpiry}`;
+    }
+
+    if(cardCvv) {
+        document.getElementById('cardCvv').textContent = `CVV: ${cardCvv}`;
+        document.getElementById('cardCvvNumber').textContent = `${cardCvv}`;
+    }
+    
+    if(accBalance2) {
+        document.getElementById('accBalance2').textContent = `Balance: ${accBalance2}`;
     }
 });
-
     </script>
 </body>
 </html>

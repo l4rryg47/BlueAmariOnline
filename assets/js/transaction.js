@@ -1,11 +1,9 @@
 document.getElementById('registrationForm1').addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Get the user ID from localStorage (assuming you store it during login)
-    const userName = localStorage.getItem('userName');
+
     
     const form1Data = {
-        userName: userName, // Add userName to the form data
+        userName: document.getElementById('userName').value,
         transactionDate: document.getElementById('transactionDate').value,
         transactionDescription: document.getElementById('transactionDescription').value,
         transactionType: document.getElementById('transactionType').value,
@@ -40,3 +38,7 @@ document.getElementById('registrationForm1').addEventListener('submit', async (e
         alert('An error occurred creating transaction history');
     }
 });
+
+function backToAdmin() {
+    location.href = '../adminDashboard.html'
+}

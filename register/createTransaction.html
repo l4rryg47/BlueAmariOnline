@@ -104,12 +104,21 @@
                 placeholder="Credit Card, Bank Transfer or Cheque"
                 required
               />
+              <label for="transactionMethod">Transaction is for User</label>
+              <input
+                type="text"
+                name="userName"
+                id="userName"
+                placeholder="Assign transaction to user history"
+                required
+              />
             </div>
           </div>
-          <div class="forgot4" style="margin-top: 20px" id="forgot3">
+          <div class="forgot4" style="margin-top: 15px" id="forgot3">
             <button type="submit" id="registerButton">
               <p>Create</p>
             </button>
+            <p style="color: blue; font-size: .7rem; margin-top: 5px; cursor: pointer;" onclick="backToAdmin()">Back to Admin Dashboard</p>
           </div>
         </form>
       </div>

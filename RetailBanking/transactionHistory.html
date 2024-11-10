@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles/accounts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../assets/media/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/styles/fundsTransfer.css">
+    <link rel="stylesheet" href="../assets/styles/offers.css">
+    <link rel="stylesheet" href="../assets/styles/billPay.css">
+    <link rel="stylesheet" href="../assets/styles/card.css">
+    <link rel="stylesheet" href="../assets/styles/loan.css">
+    <link rel="stylesheet" href="../assets/styles/mutualFundsDiv.css">
+    <link rel="stylesheet" href="../assets/styles/transactionHistory.css">
+    <title>Retail Banking - Dashboard</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+    
+            if (!token) {
+                window.location.href = '../login/index.html';
+            } else {
+                // Remove the 'hidden' class to reveal the content
+                document.body.classList.remove('hidden');
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div id="logoTitle">NETBANKING</div>
+            <div id="logo">
+                <img src="../assets/media/images/Untitled-removebg-preview.png" alt="BlueAmari-Logo">
+                <p id="logoText">Blue Sky Amari Finance</p>
+            </div>
+        </div>
+        <div class="headerNav">
+            <div class="topNav">
+                <div class="welcome">
+                    <p id="welcome">Welcome, User</p>
+                    <p id="todayDate">Last Login: </p>
+                </div>
+                <div class="profile">
+                    <p id="passwordChange">Change Password</p>
+                    <p id="profileDetails">Settings</p>
+                    <button type="button">Logout</button>
+                </div>
+            </div>
+            <div class="bottomNav" id="bottomNav">
+                <div id="accounts" class="profileHome">Home</div>
+                <div id="fundsTransfer">Settings</div>
+                
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="leftSection">
+            <div class="myAccounts">My Profile</div>
+            <div class="payBills">Security</div>
+            <div class="transaction">Options</div>
+        </div>
+        <div class="rightSection">
+            <div class="accounts">
+                
+                <div class="accountsDisplay">
+                    <div class="transaction-history">
+                        <h3>Transaction History</h3>
+                        <table id="transactionTable">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionBody">
+                                <!-- Transaction rows will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="advert">PLACE YOUR ADVERT HERE</div>
+            </div>
+
+            
+            
+        </div>
+    </section>
+    <footer>
+        <div class="contactUs">Contact Us</div>
+        <div class="location">Locations</div>
+        <div class="bookAp">Book an Appointment</div>
+        <div class="legal">Legal</div>
+        <div class="security">Security</div>
+    </footer>
+
+
+    <script src="../assets/js/index.js"></script>
+    
+</body>
+</html>

@@ -59,6 +59,9 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
         accBalance1: document.getElementById('accBalance1').value,
         accBalance2: document.getElementById('accBalance2').value,
         accBalance3: document.getElementById('accBalance3').value,
+        cardNumber: document.getElementById('cardNumber').value,
+        cardExpiry: document.getElementById('cardExpiry').value,
+        cardCvv: document.getElementById('cardCvv').value,
     };
 
     try {
@@ -85,3 +88,11 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
         alert('An error occurred during registration');
     }
 });
+
+function backToAdmin() {
+    location.href = '../adminDashboard.html'
+}
+
+function homePage() {
+    location.href = '../index.html'
+}

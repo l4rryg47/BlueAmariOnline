@@ -8,6 +8,7 @@ const selected = document.querySelector('#transferType');
 const transCharges = document.querySelector('#transCharges');
 const loader = document.querySelector('.loader');
 const pin = document.querySelector('.enterPin');
+const showTransactions = document.getElementById('showTransactions');
 const approve = document.querySelector('#approveBtn');
 const pinInput = document.querySelector('#enterPin')
 
@@ -87,12 +88,19 @@ back1.addEventListener('click', (e) => {
       
 })
 
-transfer.addEventListener('submit', (e) => {
+transfer.addEventListener('submit', async(e) => {
     e.preventDefault();
     console.log('form submitted')
 
+    const userName = localStorage.getItem('userName')
+    const transactionType = "DEBIT";
+    const transactionMethod = "BANK TRANSFER";
+    let transactionBalance = "580,000.00USD"
+    let transactionStatus = "PROCESSED"
+    const transactionDate = new Date();
     
     const transferDetails = {
+        userName: userName,
         transferType: selected.value,
         bank: transfer.bankName.value,
         baddress: transfer.bankAdd.value,
@@ -101,22 +109,53 @@ transfer.addEventListener('submit', (e) => {
         benName: transfer.benName.value,
         benAdd: transfer.benAdd.value,
         benContact: transfer.benContact.value,
-        transAmount: transfer.transAmount.value,
-        transDescription: transfer.transDescription.value,
+        transactionAmount: transfer.transAmount.value,
+        transactionDescription: transfer.transDescription.value,
+        transactionType: transactionType,
+        transactionMethod: transactionMethod,
+        transactionBalance: transactionBalance,
+        transactionStatus: transactionStatus,
+        transactionDate: transactionDate,
         transCharges: transfer.transCharges.value
     }
 
-    localStorage.setItem('transferDetails', JSON.stringify(transferDetails));
+    console.log('Form data:', transferDetails); // Debugging output
 
-    transfer.reset();
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/transaction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(transferDetails)
+        });
+
+        const data = await response.json();
+        console.log('Response data:', data); // Debugging output
+
+        if (response.ok) {
+            // Redirect to dashboard or home page
+            // window.location.href = 'transactionSuccessful.html';
+            alert('Transfer Successful')
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred creating a transfer');
+    }
+
+    // localStorage.setItem('transferDetails', JSON.stringify(transferDetails));
+
+    // transfer.reset();
     
-    beneficiary.style.display = 'none';
-    transaction.style.display = 'none';
-    loader.style.display = 'block'
-    setTimeout(function(){
-        loader.style.display = 'none';
-        pin.style.display = 'flex'
-    }, 5000)
+    // beneficiary.style.display = 'none';
+    // transaction.style.display = 'none';
+    // loader.style.display = 'block'
+    // setTimeout(function(){
+    //     loader.style.display = 'none';
+    //     pin.style.display = 'flex'
+    // }, 5000)
 })
 
 approve.addEventListener('click', () => {
@@ -126,3 +165,4 @@ approve.addEventListener('click', () => {
         alert('Invalid Transaction Pin!')
     }
 })
+

@@ -9,7 +9,7 @@ dotenv.config();
 
 // Registration Route
 router.post('/register', async (req, res) => {
-    const { fullName, userName, email, password, dob, phone, authPin, accBalance1, accBalance2, accBalance3 } = req.body;
+    const { fullName, userName, email, password, dob, phone, authPin, accBalance1, accBalance2, accBalance3, cardNumber, cardExpiry, cardCvv } = req.body;
 
     try {
         const existingUser = await User.findOne({ email });
@@ -28,6 +28,9 @@ router.post('/register', async (req, res) => {
             accBalance1,
             accBalance2,
             accBalance3,
+            cardNumber,
+            cardExpiry,
+            cardCvv
         });
 
         await user.save();
@@ -61,7 +64,11 @@ router.post('/login', async (req, res) => {
             token, 
             userName: user.userName, 
             fullName: user.fullName, 
-            lastLogin: user.lastLogin 
+            lastLogin: user.lastLogin,
+            cardNumber: user.cardNumber,
+            cardCvv: user.cardCvv,
+            cardExpiry: user.cardExpiry,
+            accBalance2: user.accBalance2
         });
     } catch (error) {
         res.status(500).json({ message: 'Server Error' });
@@ -127,10 +134,43 @@ router.get('/transactions', async (req, res) => {
     }
 });
 
-// Delete a user
-router.delete('/users/:id', async (req, res) => {
+// Get all transactions by userName
+router.get('/transactions/:userName', async (req, res) => {
+    const { userName } = req.params; // Get userName from request parameters
     try {
-        const user = await User.findByIdAndDelete(req.params.id);
+        // Verify that the user exists
+        const user = await User.findOne({ userName: userName });
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        const transactions = await Transaction.find({ userName: userName }); // Filter transactions by userName
+        res.json(transactions);
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+// router.get('/api/auth/transactions/user', async (req, res) => {
+//     const { userName } = req.query; // Get userName from query parameters
+//     try {
+//         // Ensure userName is provided
+//         if (!userName) {
+//             return res.status(400).json({ error: 'userName is required' });
+//         }
+
+//         // Fetch transactions for the specific user
+//         const transactions = await Transaction.find({ userName: userName }); // Adjust according to your database model
+//         res.json(transactions);
+//     } catch (error) {
+//         console.error("Error fetching transactions:", error);
+//         res.status(500).json({ error: 'Internal server error' });
+//     }
+// });
+
+// Delete a user
+router.delete('/users/:userName', async (req, res) => {
+    const { userName } = req.params; // Get userName from request parameters
+    try {
+        const user = await User.findOneAndDelete({ userName: userName }); // Find and delete user by userName
         if (!user) return res.status(404).json({ message: 'User not found' });
         res.json({ message: 'User deleted successfully' });
     } catch (error) {
@@ -139,9 +179,10 @@ router.delete('/users/:id', async (req, res) => {
 });
 
 // Delete a transaction
-router.delete('/transactions/:id', async (req, res) => {
+router.delete('/transactions/:_id', async (req, res) => {
+    const { _id } = req.params; // Get transaction ID from request parameters
     try {
-        const transaction = await Transaction.findByIdAndDelete(req.params.id);
+        const transaction = await Transaction.findOneAndDelete({_id: _id});
         if (!transaction) return res.status(404).json({ message: 'Transaction not found' });
         res.json({ message: 'Transaction deleted successfully' });
     } catch (error) {
@@ -150,7 +191,7 @@ router.delete('/transactions/:id', async (req, res) => {
 });
 
 // Update a user
-router.put('/users/:id', async (req, res) => {
+router.put('/users/:userName', async (req, res) => {
     const { fullName, userName, email, password, dob, phone, authPin, accBalance1, accBalance2, accBalance3 } = req.body;
     try {
         const user = await User.findByIdAndUpdate(req.params.id, {

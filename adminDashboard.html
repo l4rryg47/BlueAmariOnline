@@ -18,11 +18,29 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Blue Sky Amari Finance</title>
+    <title>Blue Sky Amaris Finance</title>
+    <script src="./assets/js/admin.js"></script>
   </head>
   <style>
     tr:nth-child(even) {
   background-color: rgba(150, 212, 212, 0.4);
+}
+table {
+  border: 1px solid whitesmoke;
+}
+
+th, td {
+  height: 2rem;
+  width: auto;
+}
+
+th {
+  border-bottom: 2px solid whitesmoke;
+}
+
+td {
+  /* border-right: 1px solid whitesmoke; */
+  padding-left: 2px;
 }
 
   </style>
@@ -32,7 +50,7 @@
         <div id="logo">
           <img
             src="./assets/media/images/Untitled-removebg-preview.png"
-            alt="BlueAmarie-Logo"
+            alt="BlueAmaris-Logo"
             style="height: auto; max-width: 100%"
           />
         </div>
@@ -70,48 +88,83 @@
             <div class="services" id="listTransactions">List all transaction</div>
             <div class="faqs" id="newUser">Create New User</div>
             <div class="contactUs" id="newTransaction">Create new Transaction</div>
-            <div class="contactUs">Delete User</div>
-            <div class="contactUs">Delete Transaction</div>
+            <div class="contactUs" id="deleteUser">Delete User</div>
+            <div class="contactUs" id="deleteTransaction">Delete Transaction</div>
+            <div class="contactUs" id="adminLogout">Logout</div>
           </div>
           
         </div>
       </div>
     </header>
     
-    <section style="overflow-x: scroll; padding: 1.5rem; background-color: rgb(1, 25, 37); width: 80%; margin: auto; border-radius: 10px; box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5), inset 5px 5px 10px 0px rgba(0, 0, 0, 0.3);">
+    <section style="overflow-x: scroll; padding: 1.5rem; background-color: rgb(1, 25, 37); width: 80%; margin: auto; border-radius: 10px; box-shadow: inset -5px -5px 10px 0px rgba(255, 255, 255, 0.5), inset 5px 5px 10px 0px rgba(0, 0, 0, 0.3); display: flex;
+    flex-direction: column; gap: 10px; align-items: center; justify-content: center;">
         <!-- My Table here -->
-        <h2>Users List</h2>
-        <table id="usersTable" style="width: 100%; border-collapse: collapse;">
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- User data will be populated here -->
-            </tbody>
-        </table>
-
-        <h2>Transactions List</h2>
-        <table id="transactionsTable" style="width: 100%; border-collapse: collapse;">
-            <thead>
-                <tr>
-                    <th>Transaction Date</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Amount</th>
-                    <th>Balance</th>
-                    <th>Status</th>
-                    <th>Method</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Transaction data will be populated here -->
-            </tbody>
-        </table>
+         <h1 id="hiddenSection">Admin Control Panel</h1>
+         <div id="hiddenSection1">Use navigation options above to select admin action you would like to perform</div>
+         <div style="font-size: .8rem; color: rgb(134, 137, 138);" id="hiddenSection2">Note: To delete a transaction you must first list all transactions to be able to copy transaction ID.</div>
+        <div class="tableDisplay">
+          <button type="button" id="showUsers" style="margin-bottom: 30px;">Show users</button>
+          <button type="button" id="showTransactions" style="margin-bottom: 30px;">Show Transactions</button>
+          <div class="usersTable">
+            <table id="usersTable" style="width: 100%; font-size: .8rem; font-weight: 500;">
+              <h2 style="font-weight: 500; margin-bottom: 10px;">Users</h2>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Date of Birth</th>
+                        <th>Phone</th>
+                        <th>PIN</th>
+                        <th>Fixed</th>
+                        <th>Savings</th>
+                        <th>Card</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- User data will be populated here -->
+                </tbody>
+            </table>
+          </div>
+          <div class="transactionsTable">
+            <h2 style="font-weight: 500; margin-bottom: 10px;">Transactions</h2>
+            <table id="transactionsTable" style="width: 100%; font-size: .8rem; font-weight: 500;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Transaction Date</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
+                        <th>Status</th>
+                        <th>Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Transaction data will be populated here -->
+                </tbody>
+            </table>
+          </div>
+          <div class="deleteUser1">
+            <form action="" method="POST" style="display: flex; flex-direction: column; gap: 20px;" id="deleteUserForm">
+              <label for="userName">Enter User Name to Delete:</label>
+              <input type="text" name="userName" id="userName" required style="width: 12rem; height: 2.5rem; color: black; padding-left: 8px;">
+              <button type="submit">Delete User</button>
+              <div id="message"></div>
+            </form>
+          </div>
+          <div class="deleteTransaction1">
+            <form action="" method="GET" style="display: flex; flex-direction: column; gap: 20px;" id="deleteTransactionForm">
+              <label for="_id">Enter Transaction Id to Delete:</label>
+              <input type="text" name="_id" id="_id" required style="width: 12rem; height: 2.5rem; color: black; padding-left: 8px;">
+              <button type="submit">Delete Transaction</button>
+              <div id="message2"></div>
+            </form>
+          </div>
+        </div>
+        
     </section>
 
     <footer>

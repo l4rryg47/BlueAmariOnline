@@ -23,6 +23,9 @@ const UserSchema = new mongoose.Schema({
     accBalance1: String,
     accBalance2: String,
     accBalance3: String,
+    cardNumber: String,
+    cardExpiry: String,
+    cardCvv: String,
     transactions: [TransactionSchema]
 });
 
