@@ -45,6 +45,9 @@
             <h2 style="color: black; margin-bottom: 10px">
               Create New Transaction History
             </h2>
+            <div class="backArrow" id="backArrow3">
+              Back
+          </div>
           </div>
           <div class="formEntries" id="sideHidden">
             <div class="sideA">
@@ -114,12 +117,75 @@
               />
             </div>
           </div>
-          <div class="forgot4" style="margin-top: 15px" id="forgot3">
+          <div class="formEntriesRegister" id="sideHidden5">
+            <div class="sideG">
+              <label for="beneficiary">Beneficiary Name</label>
+              <input
+                type="text"
+                name="beneficiary"
+                id="beneficiary"
+                required
+                placeholder="Enter Beneficiary Name"
+              />
+              <label for="benAddress">Beneficiary Address</label>
+              <input
+                type="text"
+                name="benAddress"
+                id="benAddress"
+                placeholder="Enter Beneficiary Address"
+                required
+              />
+              <label for="benBank">Beneficiary Bank Name</label>
+              <input
+                type="text"
+                name="benBank"
+                id="benBank"
+                placeholder="Beneficiary Bank Details"
+                required
+              />
+            </div>
+            <div class="sideH">
+              <label for="benBankAdd">Beneficiary Bank Address</label>
+              <input
+                type="text"
+                name="benBankAdd"
+                id="benBankAdd"
+                placeholder="Enter Beneficiary Bank Address"
+              />
+              <label for="bankSwift">Bank SWIFT</label>
+              <input
+                type="text"
+                name="bankSwift"
+                id="bankSwift"
+                placeholder="Enter Bank SWIFT"
+                required
+              />
+              <label for="bankAcNo">Beneficiary Bank Account Number</label>
+              <input
+                type="text"
+                name="bankAcNo"
+                id="bankAcNo"
+                placeholder="Beneficiary Bank Account Number"
+                required
+              />
+            </div>
+          </div>
+          <div class="forgot6" style="margin-top: 10px;" id="forgot6">
+            <button type="button" id="registerButtonNext2">
+                <p>Next</p>
+                <span>
+                    <i class="fa-solid fa-angle-right"></i>
+                </span>
+            </button>
+            <p style="color: blue; font-size: .7rem; margin-top: 5px; cursor: pointer;" onclick="backToAdmin()">Back to Admin Dashboard</p>
+        </div>
+          <div class="forgot5" style="margin-top: 15px" id="forgot5">
             <button type="submit" id="registerButton">
               <p>Create</p>
             </button>
             <p style="color: blue; font-size: .7rem; margin-top: 5px; cursor: pointer;" onclick="backToAdmin()">Back to Admin Dashboard</p>
           </div>
+
         </form>
       </div>
     </section>

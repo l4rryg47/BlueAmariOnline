@@ -43,23 +43,23 @@
                     <p id="todayDate">Last Login: </p>
                 </div>
                 <div class="profile">
-                    <p id="passwordChange">Change Password</p>
-                    <p id="profileDetails">Settings</p>
+                    <p id="passwordChange"></p>
+                    <p id="profileDetails"></p>
                     <button type="button">Logout</button>
                 </div>
             </div>
             <div class="bottomNav" id="bottomNav">
                 <div id="accounts" class="profileHome">Home</div>
-                <div id="fundsTransfer">Settings</div>
+                
                 
             </div>
         </div>
     </header>
     <section>
         <div class="leftSection">
-            <div class="myAccounts">My Profile</div>
-            <div class="payBills">Security</div>
-            <div class="transaction">Options</div>
+            <div class="myAccounts"></div>
+            <div class="payBills"></div>
+            <div class="transaction"></div>
         </div>
         <div class="rightSection">
             <div class="accounts">
@@ -74,22 +74,22 @@
                                     <i class="fa-solid fa-user"></i>
                                 </span>
                             </div>
-                            <div class="profileName">Name: </div>
-                            <div class="customerID">Customer ID: 6872561</div>
+                            <div class="profileName"></div>
+                            <div class="customerID"></div>
                         </div>
                         <div class="demarc"></div>
                         <div class="profileAddress">
                             <div class="profileAdd">
                                 <div><strong>Address</strong></div>
-                            <div class="givenAdd">91 Jumeirah Street, Tower 2</div>
+                            <div class="givenAdd" id="userAddress"></div>
                             </div>
                             <div class="phoneNumber">
                                 <div><strong>Telephone/Mobile Number</strong></div>
-                                <div>+97186274489</div>
+                                <div id="phone"></div>
                             </div>
                             <div class="emailAdd">
                                 <div><strong>Email Adress</strong></div>
-                                <div>rajid@emirates.net.ae</div>
+                                <div id="email"></div>
                             </div>
                         </div>
                     </div>
@@ -110,33 +110,7 @@
     </footer>
 
 
-    <script src="../assets/js/index.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const lastLogin = localStorage.getItem('lastLogin');
-        
-        if (lastLogin) {
-            // Format lastLogin date if needed
-            const formattedDate = new Date(lastLogin).toLocaleString();
-            document.getElementById('todayDate').textContent = `Last Login: ${formattedDate}`;
-        }
-    });
-        // Add logout functionality
-        document.querySelector('button[type="button"]').addEventListener('click', function() {
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('token');
-            localStorage.removeItem('fullName'); 
-            window.location.href = '../login/index.html';
-        });
 
-        // Display user's name in the welcome message
-document.addEventListener('DOMContentLoaded', () => {
-    const fullName = localStorage.getItem('fullName');
-    if (fullName) {
-        document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
-        document.querySelector('.profileName').textContent = `Name: ${fullName}`;
-    }
-});
-    </script>
+    <script src="../assets/js/profile.js"></script>
 </body>
 </html>

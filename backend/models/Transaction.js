@@ -9,6 +9,13 @@ const TransactionSchema = new mongoose.Schema({
     transactionBalance: { type: String },
     transactionStatus: { type: String },
     transactionMethod: { type: String },
+    beneficiary: { type: String },
+    benAddress: { type: String },
+    benBank: { type: String },
+    benContact: { type: String },
+    benBankAdd: { type: String },
+    bankSwift: { type: String },
+    bankAcNo: { type: String },
 });
 
 module.exports = mongoose.model('Transaction', TransactionSchema);

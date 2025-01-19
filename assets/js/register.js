@@ -1,31 +1,16 @@
 const nextButton = document.querySelector('#registerButtonNext');
+const nextButton1 = document.querySelector('#registerButtonNext1');
 const registerButton = document.querySelector('#registerButton');
 const hideSide = document.querySelector('#sideHidden');
 const showHidden = document.querySelector('#showHidden');
+const showHidden2 = document.querySelector('#showHidden2');
 const forgot2 = document.querySelector('#forgot2');
 const forgot3 = document.querySelector('#forgot3');
+const forgot4 = document.querySelector('#forgot4');
 const backArrow = document.querySelector('#backArrow');
+const backArrow2 = document.querySelector('#backArrow2');
 const registerTitle = document.querySelector('#registerTitle');
 
-
-// function next () {
-//     registerform1.style.display = 'none'
-//     registerform2.style.display = 'flex'
-//     console.log("register")
-// }
-
-// function back () {
-//     registerform2.style.display = 'none'
-//     registerform1.style.display = 'flex'
-//     console.log("register")
-// }
-
-// function next2 () {
-//     registerform2.style.display = 'none'
-//     registerform3.style.display = 'flex'
-//     registerform3.style.height = '70%'
-//     console.log("register")
-// }
 
 nextButton.addEventListener('click', () => {
     hideSide.style.display = "none";
@@ -36,6 +21,18 @@ nextButton.addEventListener('click', () => {
     registerTitle.innerHTML = "Set Account Balances"  
 })
 
+nextButton1.addEventListener('click', () => {
+    hideSide.style.display = "none";
+    showHidden.style.display = "none";
+    showHidden2.style.display = "flex";
+    forgot2.style.display ="none";
+    forgot3.style.display = "none";
+    forgot4.style.display = "flex";
+    backArrow.style.display = "none";
+    backArrow2.style.display = "block";
+    registerTitle.innerHTML = "User Details"  
+})
+
 backArrow.addEventListener('click', () => {
     showHidden.style.display = "none";
     hideSide.style.display = "flex";
@@ -43,6 +40,18 @@ backArrow.addEventListener('click', () => {
     forgot2.style.display ="flex";
     backArrow.style.display = "none";
     registerTitle.innerHTML = "Register an Account" 
+})
+
+backArrow2.addEventListener('click', () => {
+    hideSide.style.display = "none";
+    showHidden2.style.display = "none";
+    showHidden.style.display = "flex";
+    forgot2.style.display ="none";
+    forgot4.style.display = "none";
+    forgot3.style.display = "flex";
+    backArrow2.style.display = "none";
+    backArrow.style.display = "block";
+    registerTitle.innerHTML = "Set Account Balances" 
 })
 
 document.getElementById('registrationForm').addEventListener('submit', async (e) => {
@@ -62,6 +71,12 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
         cardNumber: document.getElementById('cardNumber').value,
         cardExpiry: document.getElementById('cardExpiry').value,
         cardCvv: document.getElementById('cardCvv').value,
+        accNumber: document.getElementById('accNumber').value,
+        accNumber2: document.getElementById('accNumber2').value,
+        customerId: document.getElementById('customerId').value,
+        userAddress: document.getElementById('userAddress').value,
+        userCity: document.getElementById('userCity').value,
+        userCountry: document.getElementById('userCountry').value,
     };
 
     try {

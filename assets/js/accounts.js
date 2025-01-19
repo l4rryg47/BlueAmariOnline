@@ -219,5 +219,140 @@ settings.addEventListener('click', (e) => {
 //     location.href = 'Accounts.html'
 // })
 
+document.addEventListener('DOMContentLoaded', () => {
+        const lastLogin = localStorage.getItem('lastLogin');
+        
+        if (lastLogin) {
+            // Format lastLogin date if needed
+            const formattedDate = new Date(lastLogin).toLocaleString();
+            document.getElementById('todayDate').textContent = `Last Login: ${formattedDate}`;
+        }
+    });
+        // Add logout functionality
+        document.querySelector('button[type="button"]').addEventListener('click', function() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('fullName'); 
+            localStorage.removeItem('cardExpiry'); 
+            localStorage.removeItem('accBalance1'); 
+            localStorage.removeItem('accBalance2'); 
+            localStorage.removeItem('accBalance3'); 
+            localStorage.removeItem('accNumber'); 
+            localStorage.removeItem('accNumber2'); 
+            localStorage.removeItem('cardCvv'); 
+            localStorage.removeItem('cardNumber'); 
+            localStorage.removeItem('userName'); 
+            localStorage.removeItem('userCity'); 
+            localStorage.removeItem('userCountry'); 
+            localStorage.removeItem('userCity'); 
+            localStorage.removeItem('userAddress'); 
+            localStorage.removeItem('otp'); 
+            localStorage.removeItem('sentOtp'); 
+            localStorage.removeItem('accTotal'); 
+            localStorage.removeItem('email'); 
+            localStorage.removeItem('customerId'); 
+            localStorage.removeItem('lastLogin'); 
+            window.location.href = '../login/index.html';
+        });
+
+        // Display user's name in the welcome message
+document.addEventListener('DOMContentLoaded', () => {
+    const fullName = localStorage.getItem('fullName');
+    const cardNumber = localStorage.getItem('cardNumber');
+    const cardExpiry = localStorage.getItem('cardExpiry');
+    const cardCvv = localStorage.getItem('cardCvv');
+    const accBalance2 = localStorage.getItem('accBalance2');
+    const accBalance1 = localStorage.getItem('accBalance1');
+    const accBalance3 = localStorage.getItem('accBalance3');
+    const accNumber = localStorage.getItem('accNumber');
+    const accNumber2 = localStorage.getItem('accNumber2');
+    const customerId = localStorage.getItem('customerId');
+    const userAddress = localStorage.getItem('userAddress');
+    const userCity = localStorage.getItem('userCity');
+    const userCountry = localStorage.getItem('userCountry');
+    if (fullName) {
+        document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
+        document.getElementById('cardHolder').textContent = `Card Holder: ${fullName}`;
+        document.getElementById('holder').textContent = `${fullName}`;
+    }
+
+    if (cardNumber) {
+        // Remove commas from the card number
+        const cleanedCardNumber = cardNumber.replace(/,/g, ''); // Remove all commas
+
+        // Split into groups of 4
+        const splitCardNumber = cleanedCardNumber.match(/.{1,4}/g); // Split into groups of 4
+        const formattedCardNumber = splitCardNumber.join(' '); // Join with spaces for display
+
+        // Display formatted card number
+        document.getElementById('cardNumber').textContent = `Card Number: ${formattedCardNumber}`;
+        document.getElementById('userAccNo2').textContent = formattedCardNumber;
+        document.getElementById('displayCardNumber').textContent = `${formattedCardNumber}`;
+    }
+    
+    if(cardExpiry) {
+        document.getElementById('cardExpiry').textContent = `Expiry: ${cardExpiry}`;
+        document.getElementById('cardValidity').textContent = `${cardExpiry}`;
+    }
+
+    if(cardCvv) {
+        document.getElementById('cardCvv').textContent = `CVV: ${cardCvv}`;
+        document.getElementById('cardCvvNumber').textContent = `${cardCvv}`;
+    }
+    
+    if(accBalance2) {
+        document.getElementById('accBalance2').textContent = `Balance: ${accBalance2}.00 USD`;
+        document.getElementById('userAccBal2').textContent = `$ ${accBalance2}.00 USD`;
+    }
+    //From here populates user details to specific parts of the dashboard
+
+    if (accBalance1) {
+        document.getElementById('userAccBal1').textContent = `$ ${accBalance1}.00 USD`;
+    }
+
+    if (accBalance3) {
+        document.getElementById('userAccBal3').textContent = `$ ${accBalance3}.00 USD`;
+    }
+
+    if (accNumber) {
+        document.getElementById('userAccNo1').textContent = accNumber;
+}
+
+    if (accNumber2) {
+        document.getElementById('userAccNo3').textContent = accNumber2;
+    }
+
+    if (customerId) {
+        document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
+        document.getElementById('cardHolder').textContent = `Card Holder: ${fullName}`;
+        document.getElementById('holder').textContent = `${fullName}`;
+    }
+
+    if (userAddress) {
+        document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
+        document.getElementById('cardHolder').textContent = `Card Holder: ${fullName}`;
+        document.getElementById('holder').textContent = `${fullName}`;
+    }
+
+    if (userCity) {
+        document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
+        document.getElementById('cardHolder').textContent = `Card Holder: ${fullName}`;
+        document.getElementById('holder').textContent = `${fullName}`;
+    }
+
+    if (userCountry) {
+        document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
+        document.getElementById('cardHolder').textContent = `Card Holder: ${fullName}`;
+        document.getElementById('holder').textContent = `${fullName}`;
+    }
+
+    const balance1 = Number(accBalance1);
+    const balance2 = Number(accBalance2);
+    const balance3 = Number(accBalance3);
+
+    const accTotal = balance1 + balance2 + balance3;
+
+    document.getElementById('accTotal').textContent = `$ ${accTotal}.00 USD`;
+
+});
 
 

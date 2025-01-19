@@ -3,13 +3,14 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Transaction = require('../models/Transaction');
+const nodemailer = require('nodemailer');
 const router = express.Router();
 const dotenv = require('dotenv');
 dotenv.config();
 
 // Registration Route
 router.post('/register', async (req, res) => {
-    const { fullName, userName, email, password, dob, phone, authPin, accBalance1, accBalance2, accBalance3, cardNumber, cardExpiry, cardCvv } = req.body;
+    const { fullName, userName, email, password, dob, phone, authPin, accBalance1, accBalance2, accBalance3, cardNumber, cardExpiry, cardCvv, accNumber, accNumber2, customerId, userAddress, userCity, userCountry } = req.body;
 
     try {
         const existingUser = await User.findOne({ email });
@@ -30,7 +31,13 @@ router.post('/register', async (req, res) => {
             accBalance3,
             cardNumber,
             cardExpiry,
-            cardCvv
+            cardCvv,
+            accNumber,
+            accNumber2,
+            customerId,
+            userAddress,
+            userCity,
+            userCountry
         });
 
         await user.save();
@@ -61,14 +68,24 @@ router.post('/login', async (req, res) => {
         await user.save();
 
         res.json({ 
-            token, 
+            token,
             userName: user.userName, 
             fullName: user.fullName, 
             lastLogin: user.lastLogin,
+            phone: user.phone,
+            email: user.email,
             cardNumber: user.cardNumber,
             cardCvv: user.cardCvv,
             cardExpiry: user.cardExpiry,
-            accBalance2: user.accBalance2
+            accBalance1: user.accBalance1,
+            accBalance2: user.accBalance2,
+            accBalance3: user.accBalance3,
+            accNumber: user.accNumber,
+            accNumber2: user.accNumber2,
+            customerId: user.customerId,
+            userAddress: user.userAddress,
+            userCity: user.userCity,
+            userCountry: user.userCountry
         });
     } catch (error) {
         res.status(500).json({ message: 'Server Error' });
@@ -76,7 +93,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/transaction', async (req, res) => {
-    const { userName, transactionDate, transactionDescription, transactionType, transactionAmount, transactionBalance, transactionStatus, transactionMethod } = req.body;
+    const { userName, transactionDate, transactionDescription, transactionType, transactionAmount, transactionBalance, transactionStatus, transactionMethod, accBalance1, accBalance2, accBalance3 } = req.body;
 
     try {
         // Verify that the user exists
@@ -101,6 +118,11 @@ router.post('/transaction', async (req, res) => {
         // Update the user's transaction history (optional)
         user.transactions = user.transactions || [];
         user.transactions.push(transaction._id);
+
+        // Update account balances
+        user.accBalance1 = accBalance1; // Update accBalance1
+        user.accBalance2 = accBalance2; // Update accBalance2
+        user.accBalance3 = accBalance3; // Update accBalance3
         await user.save();
 
         res.status(201).json({ message: 'Transaction created successfully', transaction });
@@ -190,29 +212,6 @@ router.delete('/transactions/:_id', async (req, res) => {
     }
 });
 
-// Update a user
-router.put('/users/:userName', async (req, res) => {
-    const { fullName, userName, email, password, dob, phone, authPin, accBalance1, accBalance2, accBalance3 } = req.body;
-    try {
-        const user = await User.findByIdAndUpdate(req.params.id, {
-            fullName,
-            userName,
-            email,
-            password: password ? await bcrypt.hash(password, 10) : undefined,
-            dob,
-            phone,
-            authPin,
-            accBalance1,
-            accBalance2,
-            accBalance3,
-        }, { new: true });
-
-        if (!user) return res.status(404).json({ message: 'User not found' });
-        res.json(user);
-    } catch (error) {
-        res.status(500).json({ message: 'Server Error' });
-    }
-});
 
 // Update a transaction
 router.put('/transactions/:id', async (req, res) => {
@@ -231,6 +230,146 @@ router.put('/transactions/:id', async (req, res) => {
         if (!transaction) return res.status(404).json({ message: 'Transaction not found' });
         res.json(transaction);
     } catch (error) {
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+// Function to send OTP
+const sendOTP = async (email, otp) => {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'larzhoops@gmail.com', // your Gmail address
+            pass: 'vjdrcfnplcxmjnve' // your Gmail password or App Password
+        }
+    });
+
+    const mailOptions = {
+        from: '"Notification@BluSkeyAmaris.online" <Notification@BluSkeyAmaris.online>', // sender address
+        to: email,
+        subject: 'Login Authorization Token',
+        text: `Your OTP code is: ${otp}`,
+    };
+
+    return transporter.sendMail(mailOptions);
+};
+
+// Function to send OTP2
+const sendOTP2 = async (email, otp) => {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'larzhoops@gmail.com', // your Gmail address
+            pass: 'vjdrcfnplcxmjnve' // your Gmail password or App Password
+        }
+    });
+
+    const mailOptions = {
+        from: '"Notification@BluSkeyAmaris.online" <Notification@BluSkeyAmaris.online>', // sender address
+        to: email,
+        subject: 'Transfer Authorization Token',
+        text: `Your OTP code is: ${otp}`,
+    };
+
+    return transporter.sendMail(mailOptions);
+};
+
+// Route to send OTP
+router.post('/send-otp', async (req, res) => {
+    const { email } = req.body;
+
+    // Generate a random OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit OTP
+
+    try {
+        // Send OTP to user's email
+        await sendOTP(email, otp);
+
+        // Save the OTP and its expiration time (e.g., 5 minutes from now)
+        const user = await User.findOne({ email });
+        if (user) {
+            user.otp = otp;
+            user.otpExpires = Date.now() + 5 * 60 * 1000; // 5 minutes
+            await user.save();
+        }
+
+        res.status(200).json({ message: 'OTP sent successfully' });
+    } catch (error) {
+        console.error('Error sending OTP:', error);
+        res.status(500).json({ message: 'Error sending OTP' });
+    }
+});
+
+// Route to send OTP2
+router.post('/send-otp2', async (req, res) => {
+    const { email } = req.body;
+
+    // Generate a random OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit OTP
+
+    try {
+        // Send OTP to user's email
+        await sendOTP2(email, otp);
+
+        // Save the OTP and its expiration time (e.g., 5 minutes from now)
+        const user = await User.findOne({ email });
+        if (user) {
+            user.otp = otp;
+            user.otpExpires = Date.now() + 5 * 60 * 1000; // 5 minutes
+            await user.save();
+        }
+
+        res.status(200).json({ message: 'OTP sent successfully' });
+    } catch (error) {
+        console.error('Error sending OTP:', error);
+        res.status(500).json({ message: 'Error sending OTP' });
+    }
+});
+
+// Route to verify OTP
+router.post('/verify-otp', async (req, res) => {
+    const { email, otp } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        // Check if the OTP is valid and not expired
+        if (user.otp === otp && user.otpExpires > Date.now()) {
+            // OTP is valid
+            user.otp = null; // Clear OTP after successful verification
+            user.otpExpires = null; // Clear expiration time
+            await user.save();
+            return res.status(200).json({ message: 'OTP verified successfully' });
+        } else {
+            return res.status(400).json({ message: 'Invalid or expired OTP' });
+        }
+    } catch (error) {
+        console.error('Error verifying OTP:', error); // Log the error
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+// Route to verify OTP2
+router.post('/verify-otp2', async (req, res) => {
+    const { email, otp } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        // Check if the OTP is valid and not expired
+        if (user.otp === otp && user.otpExpires > Date.now()) {
+            // OTP is valid
+            user.otp = null; // Clear OTP after successful verification
+            user.otpExpires = null; // Clear expiration time
+            await user.save();
+            return res.status(200).json({ message: 'OTP verified successfully' });
+        } else {
+            return res.status(400).json({ message: 'Invalid or expired OTP' });
+        }
+    } catch (error) {
+        console.error('Error verifying OTP:', error); // Log the error
         res.status(500).json({ message: 'Server Error' });
     }
 });

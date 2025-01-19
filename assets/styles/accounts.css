@@ -378,6 +378,7 @@ select {
     padding: .3rem;
     outline: none;
     color: white;
+    padding-left: 10px;
 }
 
 input {

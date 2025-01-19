@@ -66,7 +66,7 @@
                     <p id="todayDate">Last Login: </p>
                 </div>
                 <div class="profile">
-                    <p id="passwordChange">Change Password</p>
+                    <p id="passwordChange"></p>
                     <p id="profileDetails">Settings</p>
                     <button type="button">Logout</button>
                 </div>
@@ -97,28 +97,28 @@
                 </div>
                 <div class="accountsDisplay">
                     <div class="displayHeader">
-                        <div class="description">Bank</div>
-                        <div class="amount" style="color: black;">$502,500.00USD</div>
+                        <div class="description">All Accounts <em>(Current, Savings and Card)</em></div>
+                        <div class="amount" style="color: black;"></div>
                     </div>
                     <div class="displayBody">
                         <div class="up">
                             <div class="description">
                             <div id="description">
-                                <p>TIER 1 INTERNATIONAL FIXED DEPOSIT</p>
+                                <p>CURRENT ACCOUNT</p>
                                 <p>CARD ACCOUNT</p>
                                 <p>RETAIL BANKING</p>
                             </div>
                             <div id="accountNumber">
-                                <p>0118498391</p>
-                                <p>--</p>
-                                <p>0118567190</p>
+                                <p id="userAccNo1"></p>
+                                <p id="userAccNo2"></p>
+                                <p id="userAccNo3"></p>
                             </div>
                             </div>
                             <div class="amount">
                                 <div id="amount">
-                                    <p>$500,000.00USD</p>
-                                    <p>$0.00USD</p>
-                                    <p>$2,500.00USD</p>
+                                    <p id="userAccBal1"></p>
+                                    <p id="userAccBal2"></p>
+                                    <p id="userAccBal3"></p>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="amount">
                                     <div id="amount" style="justify-content: center;">
-                                        <p>$502,500.00USD</p>
+                                        <p id="accTotal">$502,500.00USD</p>
                                     </div>
                                 </div>
                         </div>
@@ -194,34 +194,34 @@
                                 <div><strong>Bank Details</strong></div>
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 33%;">
-                                        <label for="bankName">Bank Name:</label>
+                                        <label for="benBank">Bank Name:</label>
                                     </div>
                                     <div style="width: 65%;">
-                                        <input type="text" name="bankName" id="bankName" required>
+                                        <input type="text" name="benBank" id="benBank" required>
                                     </div>
                                 </div>
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 33%;">
-                                        <label for="bankAdd">Bank Address:</label>
+                                        <label for="benBankAdd">Bank Address:</label>
                                     </div>
                                     <div style="width: 65%;">
-                                        <input type="text" name="bankAdd" id="bankAdd" required>
+                                        <input type="text" name="benBankAdd" id="benBankAdd" required>
                                     </div>
                                 </div>
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 33%;">
-                                        <label for="iban">ACC No./IBAN:</label>
+                                        <label for="bankAcNo">ACC No./IBAN:</label>
                                     </div>
                                     <div style="width: 65%;">
-                                        <input type="text" name="iban" id="iban" required>
+                                        <input type="text" name="bankAcNo" id="bankAcNo" required>
                                     </div>
                                 </div>
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 33%;">
-                                        <label for="swift">ROUTING/SWIFT/BIC:</label>
+                                        <label for="bankSwift">ROUTING/SWIFT/BIC:</label>
                                     </div>
                                     <div style="width: 65%;">
-                                        <input type="text" name="swift" id="swift" required>
+                                        <input type="text" name="bankSwift" id="bankSwift" required>
                                     </div>
                                 </div>
                             </div>
@@ -229,18 +229,18 @@
                                 <div><strong>Beneficiary Details</strong></div>
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 33%;">
-                                        <label for="benName">Beneficiary Name:</label>
+                                        <label for="beneficiary">Beneficiary Name:</label>
                                     </div>
                                     <div style="width: 65%;">
-                                        <input type="text" name="benName" id="benName" required>
+                                        <input type="text" name="beneficiary" id="beneficiary" required>
                                     </div>
                                 </div>
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 33%;">
-                                        <label for="benAdd">Beneficiary Address:</label>
+                                        <label for="benAddress">Beneficiary Address:</label>
                                     </div>
                                     <div style="width: 65%;">
-                                        <input type="text" name="benAdd" id="benAdd" required>
+                                        <input type="text" name="benAddress" id="benAddress" required>
                                     </div>
                                 </div>
                                 <div style="display: flex; align-items: center;">
@@ -304,10 +304,10 @@
                     <div class="enterPin">
                         <div style="display: flex; width: 100%; align-items: center; justify-content: center;">
                             <div style="width: 20%;">
-                                <label for="enterPin">Enter Transaction Pin:</label>
+                                <label for="enterPin">Enter Authorization Token to approve transfer:</label>
                             </div>
                             <div style="width: 30%;">
-                                <input type="text" name="enterPin" id="enterPin" required>
+                                <input type="text" name="enterPin" id="enterPin" required placeholder="* * * * * *">
                             </div>
                         </div>
                         <button type="button" id="approveBtn">Approve</button>
@@ -763,62 +763,7 @@
     <script src="../assets/js/accounts.js"></script>
     <script src="../assets/js/transfer.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const lastLogin = localStorage.getItem('lastLogin');
         
-        if (lastLogin) {
-            // Format lastLogin date if needed
-            const formattedDate = new Date(lastLogin).toLocaleString();
-            document.getElementById('todayDate').textContent = `Last Login: ${formattedDate}`;
-        }
-    });
-        // Add logout functionality
-        document.querySelector('button[type="button"]').addEventListener('click', function() {
-            localStorage.removeItem('token');
-            localStorage.removeItem('fullName'); 
-            window.location.href = '../login/index.html';
-        });
-
-        // Display user's name in the welcome message
-document.addEventListener('DOMContentLoaded', () => {
-    const fullName = localStorage.getItem('fullName');
-    const cardNumber = localStorage.getItem('cardNumber');
-    const cardExpiry = localStorage.getItem('cardExpiry');
-    const cardCvv = localStorage.getItem('cardCvv');
-    const accBalance2 = localStorage.getItem('accBalance2')
-    if (fullName) {
-        document.getElementById('welcome').textContent = `Welcome, ${fullName}`;
-        document.getElementById('cardHolder').textContent = `Card Holder: ${fullName}`;
-        document.getElementById('holder').textContent = `${fullName}`;
-    }
-
-    if (cardNumber) {
-        // Remove commas from the card number
-        const cleanedCardNumber = cardNumber.replace(/,/g, ''); // Remove all commas
-
-        // Split into groups of 4
-        const splitCardNumber = cleanedCardNumber.match(/.{1,4}/g); // Split into groups of 4
-        const formattedCardNumber = splitCardNumber.join(' '); // Join with spaces for display
-
-        // Display formatted card number
-        document.getElementById('cardNumber').textContent = `Card Number: ${formattedCardNumber}`;
-        document.getElementById('displayCardNumber').textContent = `${formattedCardNumber}`;
-    }
-    
-    if(cardExpiry) {
-        document.getElementById('cardExpiry').textContent = `Expiry: ${cardExpiry}`;
-        document.getElementById('cardValidity').textContent = `${cardExpiry}`;
-    }
-
-    if(cardCvv) {
-        document.getElementById('cardCvv').textContent = `CVV: ${cardCvv}`;
-        document.getElementById('cardCvvNumber').textContent = `${cardCvv}`;
-    }
-    
-    if(accBalance2) {
-        document.getElementById('accBalance2').textContent = `Balance: ${accBalance2}`;
-    }
-});
     </script>
 </body>
 </html>

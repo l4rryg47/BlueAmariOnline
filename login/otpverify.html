@@ -1,0 +1,93 @@
+<!-- Project coded vanilla from scratch by SNK for CMC||RIP FL3XY-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../assets/media/images/favicon.ico" type="image/x-icon">
+    <title>Blue Sky Amari Finance - Login</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve email from local storage
+            const email = localStorage.getItem('email'); // Ensure the key matches what you set
+            if (email) {
+                console.log('Email retrieved from local storage:', email); // Log the email for debugging
+                // Function to send OTP
+                sendOtp(email);
+            } else {
+                console.error('No email found in local storage.'); // Log if no email is found
+            }
+
+            
+        });
+
+        
+    </script>
+</head>
+<body>
+    <header>
+        <div class="navBar">
+            <div class="logo" onclick="homepage()">
+                <img src="../assets/media/images/Untitled-removebg-preview.png" alt="BlueAmarie-Logo" style="height: auto; max-width: 100%;">
+                <div class="logoTitle" style="font-size: 1.5rem; font-weight: semi-bold;">Blue Amarie Finance</div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="formContainer">
+            <form id="loginForm">
+                <label for="userName">Enter OTP sent to your registered email</label>
+                <input type="text" name="userName" id="userName" placeholder="* * * * * *" required>
+                
+                <button type="submit" id="loginButton">
+                    <span>
+                        <i class="fa-solid fa-lock"></i>
+                    </span>
+                    <p>Login</p>
+                </button>
+                <div class="forgot">
+                    <p style="color: black; font-size: .8rem; color: rgb(95, 95, 233); cursor: pointer;">Forgot username or password?</p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="contactUs">
+            <div id="contactUs" style="display: flex;">
+                <p>Need to talk to us directly?</p>
+                <a style="color: #81ade0; text-decoration: none;" href="">
+                    Contact Us
+                    <i class="fa-solid fa-angle-right" style="color: #81ade0;"></i>
+                </a>
+            </div>
+            <p id="contactSocials">Contact Blue Amarie on any of our socials below</p>
+            <div class="socials">
+                <div class="socialCircle">
+                    <img src="../assets/media/images/icons8-twitterx.svg" alt="Twitter-x" style="height: auto; max-width: 100%;">
+                </div>
+                <div class="socialCircle">
+                    <img src="../assets/media/images/instagram-svgrepo-com.svg" alt="Instagram" style="height: auto; max-width: 100%;">
+                </div>
+                <div class="socialCircle">
+                    <img src="../assets/media/images/linkedin-svgrepo-com.svg" alt="Linkedin" style="height: auto; max-width: 100%;">
+                </div>
+                <div class="socialCircle">
+                    <img src="../assets/media/images/youtube-168-svgrepo-com.svg" alt="YouTube" style="height: auto; max-width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="footerMain">
+            <a id="footerMain" href="">Privacy and Security</a>
+            <a id="footerMain" href="">Legal</a>
+            <a id="footerMain" href=""">Accessibility</a>
+            <a id="footerMain" href="">About Us</a>
+            <a id="footerMain" href="">Site Index</a>
+        </div>
+    </footer>
+
+    <script src="/assets/js/otpverify.js"></script>
+</body>
+</html>
