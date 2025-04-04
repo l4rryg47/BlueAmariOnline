@@ -1,3 +1,5 @@
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
+
 //Transfer Form behavior
 const transfer = document.querySelector('#transferForm');
 const beneficiary = document.querySelector('.beneficiary');
@@ -62,8 +64,9 @@ next1.addEventListener('click', (e) => {
         return false;
     }
 
-    // Contact number validation (basic check for numbers only)
-    if (!/^\d{10,}$/.test(benContact.replace(/[\s-]/g, ''))) {
+    // Contact number validation using libphonenumber-js
+    const phoneNumber = parsePhoneNumberFromString(benContact, 'US'); // Replace 'US' with the default country code
+    if (!phoneNumber || !phoneNumber.isValid()) {
         alert('Please enter a valid contact number');
         return false;
     }
@@ -150,7 +153,7 @@ transfer.addEventListener('submit', async(e) => {
     console.log('Form data:', transferDetails); // Debugging output
 
     try {
-        const response = await fetch('http://localhost:5000/api/auth/transaction', {
+        const response = await fetch('https://api.mltakins.com/api/auth/transaction', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -195,7 +198,7 @@ async function sendOTP() {
     }
 
     try {
-        const response = await fetch('http://localhost:5000/api/auth/send-otp2', {
+        const response = await fetch('https://api.mltakins.com/api/auth/send-otp2', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -226,7 +229,7 @@ document.getElementById('approveBtn').addEventListener('click', function(event) 
 });
 
 function verifyOtp(email, otp) {
-    fetch('http://localhost:5000/api/auth/verify-otp2', {
+    fetch('https://api.mltakins.com/api/auth/verify-otp2', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

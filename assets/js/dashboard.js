@@ -97,7 +97,7 @@ showUser.addEventListener("click", async () => {
   
   try {
     console.log("Fetching users..."); // Add this line to log before the fetch
-    const response = await fetch("http://localhost:5000/api/auth/users"); // Fetch users from the API
+    const response = await fetch("https://api.mltakins.com/api/auth/users"); // Fetch users from the API
     console.log("Response status:", response.status); // Log the response status
     const users = await response.json(); // Parse the JSON response
     populateUsersTable(users); // Log the user data to the table    
@@ -132,7 +132,7 @@ showTransactions.addEventListener("click", async () => {
   console.log("clicked");
   try {
     console.log("Fetching transactions..."); // Add this line to log before the fetch
-    const response = await fetch("http://localhost:5000/api/auth/transactions"); // Fetch users from the API
+    const response = await fetch("https://api.mltakins.com/api/auth/transactions"); // Fetch users from the API
     console.log("Response status:", response.status); // Log the response status
     const transactions = await response.json(); // Parse the JSON response
     populateTransactionsTable(transactions); // Log the user data to the table
@@ -162,7 +162,7 @@ function populateTransactionsTable(transactions) {
 }
 
 newUser.addEventListener('click', () => {
-    location.href = '/register'
+    location.href = '/register/index.html'
 })
 
 newTransaction.addEventListener('click', () => {
@@ -180,7 +180,7 @@ document.getElementById('deleteUserForm').addEventListener('submit', async (even
 async function deleteUserByUserName(userName) {
   const messageDiv = document.getElementById('message'); // Get the message div
   try {
-    const response = await fetch(`http://localhost:5000/api/auth/users/${userName}`, {
+    const response = await fetch(`https://api.mltakins.com/api/auth/users/${userName}`, {
       method: 'DELETE',
     });
     if (response.ok) {
@@ -214,7 +214,7 @@ async function deleteTransactionByTransactionId(_id) {
   
   console.log("Attempting to delete transaction with ID:", _id); // Log the transaction ID
   try {
-    const response = await fetch(`http://localhost:5000/api/auth/transactions/${_id}`, {
+    const response = await fetch(`https://api.mltakins.com/api/auth/transactions/${_id}`, {
       method: 'DELETE',
     });
     console.log("Response status:", response.status); // Log the response status

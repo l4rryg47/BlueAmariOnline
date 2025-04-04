@@ -46,7 +46,7 @@ transactionHistory.addEventListener("click", async () => {
     try {
       const userName = localStorage.getItem('userName'); // Ensure this is set correctly
       console.log("Fetching transactions for user:", userName);
-      const response = await fetch(`http://localhost:5000/api/auth/transactions/${userName}`);
+      const response = await fetch(`https://api.mltakins.com/api/auth/transactions/${userName}`);
       console.log("Response status:", response.status);
       
       if (!response.ok) {

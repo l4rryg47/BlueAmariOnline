@@ -47,7 +47,7 @@ document.getElementById('registrationForm1').addEventListener('submit', async (e
     console.log('Form data:', form1Data); // Debugging output
 
     try {
-        const response = await fetch('http://localhost:5000/api/auth/transaction', {
+        const response = await fetch('https://api.mltakins.com/api/auth/transaction', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

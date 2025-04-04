@@ -10,7 +10,7 @@ const loginForm = document.getElementById('loginForm');
 
 function sendOtp(email) {
     // Example API call to send OTP
-    fetch('http://localhost:5000/api/auth/send-otp', { // Ensure this URL is correct
+    fetch('https://api.mltakins.com/api/auth/send-otp', { // Ensure this URL is correct
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ function sendOtp(email) {
 }
 
 function verifyOtp(email, otp) {
-    fetch('http://localhost:5000/api/auth/verify-otp', {
+    fetch('https://api.mltakins.com/api/auth/verify-otp', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

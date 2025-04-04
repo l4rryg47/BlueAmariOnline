@@ -12,25 +12,25 @@ const close = document.querySelector('.close');
 
 login.addEventListener('click', (e) =>{
     e.preventDefault();
-    location.href = '/login'
+    location.href = '/login/index.html'
     console.log('clicked')
 })
 
 login1.addEventListener('click', (e) =>{
     e.preventDefault();
-    location.href = '/login'
+    location.href = '/login/index.html'
     console.log('clicked')
 })
 
 register.addEventListener('click', (e) =>{
     e.preventDefault();
-    location.href = '/register'
+    location.href = '/register/index.html'
     console.log('clicked')
 })
 
 register1.addEventListener('click', (e) =>{
     e.preventDefault();
-    location.href = '/register'
+    location.href = '/register/index.html'
     console.log('clicked')
 })
 
